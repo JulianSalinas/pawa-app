@@ -1,0 +1,168 @@
+[
+    {
+        "id": "a8d1ca28.6aa328",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e1bb68b1.628238",
+        "type": "inject",
+        "z": "a8d1ca28.6aa328",
+        "name": "Send Position Trigger",
+        "topic": "Send Position Trigger",
+        "payload": "{}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "e5a12fb7.abc41"
+            ]
+        ]
+    },
+    {
+        "id": "38bcd3ff.085e6c",
+        "type": "ibmiot out",
+        "z": "a8d1ca28.6aa328",
+        "authentication": "apiKey",
+        "apiKey": "5b2b1108.e4293",
+        "outputType": "evt",
+        "deviceId": "virtual-gyroscope-1",
+        "deviceType": "Gyroscope",
+        "eventCommandType": "Sent Position",
+        "format": "json",
+        "data": "{}",
+        "qos": 0,
+        "name": "Pawa Platform",
+        "service": "registered",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "207da887.13fb78",
+        "type": "ibmiot in",
+        "z": "a8d1ca28.6aa328",
+        "authentication": "apiKey",
+        "apiKey": "5b2b1108.e4293",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "Pawa Platform",
+        "service": "registered",
+        "allDevices": true,
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": true,
+        "qos": 0,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "4c47a17e.e79a4",
+                "20de2ecb.822872"
+            ]
+        ]
+    },
+    {
+        "id": "4c47a17e.e79a4",
+        "type": "debug",
+        "z": "a8d1ca28.6aa328",
+        "name": "Check After Receive",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 400,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e5a12fb7.abc41",
+        "type": "function",
+        "z": "a8d1ca28.6aa328",
+        "name": "Create Random Position ",
+        "func": "const MAX_GRADE = 360;\n\nfunction getRandomInt(max) {\n    return Math.floor(Math.random() * Math.floor(max));\n}\n\nfunction getRandomGrade() {\n    return getRandomInt(MAX_GRADE + 1);\n}\n\nvar position = {\n    \"x\":  getRandomGrade(), \n    \"y\":  getRandomGrade()\n}\n\nmsg.payload.position = position; \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "daa3407f.2e8f8",
+                "38bcd3ff.085e6c"
+            ]
+        ]
+    },
+    {
+        "id": "daa3407f.2e8f8",
+        "type": "debug",
+        "z": "a8d1ca28.6aa328",
+        "name": "Check Before Send",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "20de2ecb.822872",
+        "type": "function",
+        "z": "a8d1ca28.6aa328",
+        "name": "Extract Device Information",
+        "func": "payload = {\n    \"deviceType\": msg.deviceType,\n    \"deviceId\": msg.deviceId, \n    \"eventType\": msg.eventType\n}\n\n\nreturn payload;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "3e78ba3a.a7b106"
+            ]
+        ]
+    },
+    {
+        "id": "3e78ba3a.a7b106",
+        "type": "debug",
+        "z": "a8d1ca28.6aa328",
+        "name": "Check Device",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5b2b1108.e4293",
+        "type": "ibmiot",
+        "z": "",
+        "name": "pawa-platform",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    }
+]

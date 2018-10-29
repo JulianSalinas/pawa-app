@@ -5,7 +5,7 @@ import PageRoutes from './PageRoutes';
 import TopNavigation from './TopNavigation';
 import SideNavigation from './SideNavigation';
 
-import Background from "../assets/backgrounds/nature-1.jpg"
+import Background from "../assets/nature-1.jpg"
 
 export default props => {
 
