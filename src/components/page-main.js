@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-import Footer from './Footer';
-import PageRoutes from './PageRoutes';
-import TopNavigation from './TopNavigation';
-import SideNavigation from './SideNavigation';
+import Footer from './page-footer';
+import PageRoutes from './page-routes';
+import TopNavigation from './page-top';
+import SideNavigation from './page-side';
 
 import Background from "../assets/nature-1.jpg"
 

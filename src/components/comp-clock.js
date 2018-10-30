@@ -2,7 +2,7 @@ import React from "react";
 
 import { Component } from "react";
 import { Button } from "mdbreact"
-import { getCurrentDateString, getCurrentTimeString } from "../util/time-utils"
+import { getCurrentDateString, getCurrentTimeString } from "../utils-time"
 
 class Clock extends Component {
 

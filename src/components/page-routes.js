@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import MapsPage from '../singlepages/MapsPage';
 import TablesPage from '../singlepages/TablesPage';
 import ProfilePage from '../singlepages/ProfilePage';
-import MessagePage from '../singlepages/MessagesPage';
-import NotFoundPage from '../singlepages/NotFoundPage';
+import MessagePage from './single-messages';
+import NotFoundPage from './single-not-found';
 import DashboardPage from '../singlepages/DashboardPage';
 
 export default () => 
