@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row } from 'mdbreact';
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-1.png";
 
 export default () => 
 

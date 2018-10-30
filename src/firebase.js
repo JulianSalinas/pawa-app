@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-var config = {
+const config = {
     apiKey: "AIzaSyByauTNityhJ4C1BJ7k7ooJ1pi_aeh_WyM",
     authDomain: "pawa-2c7a3.firebaseapp.com",
     databaseURL: "https://pawa-2c7a3.firebaseio.com",

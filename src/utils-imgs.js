@@ -1,6 +1,5 @@
 function getAllBackgrounds(path, callback) {
-    var index = 0; 
-    var fs = require('fs');
+    const fs = require('fs');
     fs.readdir(path, callback);
 }
 

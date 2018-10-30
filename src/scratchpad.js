@@ -9,10 +9,10 @@ function getCurrentTimeString(){
     return LocalDateTime.now().format(DateTimeFormatter.ofPattern('hh:m:ss'))
 }
 
-var currentPath = './src/assets/';
+const currentPath = './src/assets/';
 
 function getAllBackgrounds(path, callback) {
-    var fs = require('fs');
+    const fs = require('fs');
     fs.readdir(path, callback);
 }
 

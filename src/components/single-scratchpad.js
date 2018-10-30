@@ -1,4 +1,4 @@
-import './PresentationPage.css';
+import './single-scratchpad.css';
 import React from 'react'
 
 export default () =>

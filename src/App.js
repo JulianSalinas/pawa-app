@@ -1,6 +1,6 @@
 import './app.css';
 import React from 'react';
-import PresentationPage from "./singlepages/PresentationPage"
+import PresentationPage from "./components/single-scratchpad"
 
 var Client = require('ibmiotf').IotfApplication;
 
