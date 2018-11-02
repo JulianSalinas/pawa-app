@@ -4,7 +4,22 @@ import { Component } from "react";
 import { Button } from "mdbreact"
 import { getCurrentDateString, getCurrentTimeString } from "../utils-time"
 
-class Clock extends Component {
+const clockStyle = {
+    color:"#777",
+    textAlign:"center",
+    fontFamily:"Roboto",
+    fontSize: 24,
+    fontWeight:"300"
+};
+
+const ClockFragment = props =>
+    <div>
+        <h1 style={clockStyle}>
+            {props.date} {props.time}
+        </h1>
+    </div>;
+
+export default class Clock extends Component {
 
     constructor(props) {
         super(props);
@@ -19,17 +34,10 @@ class Clock extends Component {
             date: getCurrentDateString(),
             time: getCurrentTimeString() }); 
         }, 1000);
-    }
+    };
 
     render() {
-        return (
-            <div className="clock-text">
-                <h1>{this.state.date} {this.state.time}</h1>
-                <Button color="primary">Primary</Button>
-                <Button color="unique">Unique</Button>
-            </div>
-        )
+        return <ClockFragment date={this.state.date} time={this.state.time}/>
     }
-}
 
-export default Clock;
+}

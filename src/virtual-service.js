@@ -1,6 +1,6 @@
 const IS_DEBUG = false;
 const CONNECT = "connect";
-const DEBUG_LEVEL = "info";
+const DEBUG_LEVEL = null;
 const DEVICE_EVENT = "deviceEvent";
 
 console.log("Importing required modules");
