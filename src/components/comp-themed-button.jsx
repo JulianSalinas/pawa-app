@@ -7,7 +7,8 @@ class ThemedButton extends Component {
         super(props);
         this.state = { 
             theme: null, 
-            dropdownOpen: false, 
+            dropdownOpen: false,
+            signOut: props.signOut,
             allThemes: ["primary", "secondary", "success", "info", "warning", "dager"]
         }
     }
@@ -38,7 +39,10 @@ class ThemedButton extends Component {
         const themeClass = theme ? theme.toLowerCase() : "secondary";
 
         return (
-            <Button onClick={e => this.randomTheme(e)} color={themeClass}>{theme || "Custom"} Theme</Button>
+            <Button onClick={e => {
+                this.randomTheme(e);
+                this.state.signOut();
+            }} color={themeClass}>{theme || "Custom"} Theme</Button>
         );
 
     }

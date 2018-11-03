@@ -78,20 +78,41 @@ const BottomClock = props =>
         <Clock/>
     </div>;
 
-const Fragment = props =>
-    <div>
-        <Head/>
-        <hr/>
-        <StartButton/>
-        <MetersLayout position={props.position}/>
-        <BottomClock/>
+const UserInfo = props =>
+    <div style={centerStyle}>
+        <text>{ props.user.displayName }</text>
+        <text>{ props.user.email }</text>
+        <text>{ props.user.photoURL }</text>
     </div>;
+
+const Fragment = props => {
+
+    const { signOut } = props;
+
+    return (
+        <div>
+            <Head/>
+            <hr/>
+            <StartButton/>
+            <MetersLayout position={props.position}/>
+            <BottomClock/>
+            <hr/>
+            <UserInfo user={props.user}/>
+            <button onClick={ signOut }>Log out</button>
+        </div>
+    );
+};
 
 export default class Scratchpad extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { deviceId: null, deviceType: null, position:{ x: 15, y: 16} };
+        this.state = {
+            user: props.user,
+            error: props.error,
+            signOut: props.signOut,
+            deviceId: null, deviceType: null, position:{ x: 15, y: 16}
+        };
     }
 
     deviceEventCallback = (deviceType, deviceId, eventType, format, payload) => {
@@ -104,7 +125,10 @@ export default class Scratchpad extends Component {
     }
 
     render(){
-        return <Fragment position={this.state.position}/>;
+        return <Fragment user={ this.state.user }
+                         error={ this.state.error }
+                         signOut={ this.state.signOut }
+                         position={ this.state.position }/>;
     }
 
 }
