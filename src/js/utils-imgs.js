@@ -9,7 +9,7 @@ getAllBackgrounds(currentPath='./src/assets/backgrounds/', (error, filenames) =>
         console.log(filenames);
     }
     else {
-        console.log("Error retrieving backgrounds!");
+        console.log('Error retrieving backgrounds!');
         console.log(error);
     }
 });

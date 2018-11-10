@@ -37,13 +37,13 @@ class MessagePage extends Component {
 
         return (
             <form onSubmit={this.addMessage.bind(this)}>
-                <input type="text" ref={ el => this.inputEl = el }/>
-                <input type="submit"/>
+                <input type='text' ref={ el => this.inputEl = el }/>
+                <input type='submit'/>
                 <br/>
                 { 
                     this.state.messages.map(function(message){
                         return (
-                            <Button outline color="red"  onClick={() => this.removeMessage(message.id)}  key={message.id}>{message.text}</Button>
+                            <Button outline color='red'  onClick={() => this.removeMessage(message.id)}  key={message.id}>{message.text}</Button>
                         );
                     })
                 }

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { app } from "../js/firebase";
-import Dashboard from "./single-scratchpad";
-import withFirebaseAuth from "react-auth-firebase";
+import { app } from '../js/firebase';
+import Dashboard from './single-scratchpad';
+import withFirebaseAuth from 'react-auth-firebase';
 
-// const email = "test@test.com";
-// const password = "password";
+// const email = 'test@test.com';
+// const password = 'password';
 
 class Login extends Component {
 
@@ -39,20 +39,20 @@ class Login extends Component {
             <div>
                 <form onSubmit={e => e.preventDefault()}>
                     <input
-                        type="text"
-                        placeholder="Email"
+                        type='text'
+                        placeholder='Email'
                         onChange={e => this.setState({ email: e.target.value })}
-                    />{" "}
+                    />{'' ''}
                     <br />
                     <input
-                        type="password"
-                        placeholder="Password"
+                        type='password'
+                        placeholder='Password'
                         onChange={e => this.setState({ password: e.target.value })}
                     />
                     <br />
                     {!user && (
                         <button
-                            type="submit"
+                            type='submit'
                             onClick={() => signInWithEmail(email, password)}
                         >
                             SignIn
@@ -61,25 +61,25 @@ class Login extends Component {
                 </form>
                 <form onSubmit={e => e.preventDefault()}>
                     <input
-                        type="text"
-                        placeholder="Email"
+                        type='text'
+                        placeholder='Email'
                         onChange={e =>
                             this.setState({
                                 email: e.target.value
                             })
                         }
                         value={email}
-                    />{" "}
+                    />{'' ''}
                     <br />
                     <input
-                        type="password"
-                        placeholder="Password"
+                        type='password'
+                        placeholder='Password'
                         onChange={e => this.setState({ password: e.target.value })}
                         value={password}
-                    />{" "}
+                    />{'' ''}
                     <br />
                     <button
-                        type="submit"
+                        type='submit'
                         onClick={() => signUpWithEmail(email, password)}
                     >
                         SignUp
@@ -87,7 +87,7 @@ class Login extends Component {
                 </form>
                 <br />
                 <button onClick={signInWithGoogle}>Signin with Google</button> <br />
-                <button onClick={signInWithFacebook}>Signin with Facebook</button>{" "}
+                <button onClick={signInWithFacebook}>Signin with Facebook</button>{'' ''}
                 <br />
                 <button onClick={signInWithGithub}>Signin with Github</button> <br />
                 <button onClick={signInWithTwitter}>Signin with Twitter</button> <br />
@@ -102,9 +102,9 @@ const authConfig = {
         saveUserInDatabase: true
     },
     google: {
-        // scopes: ["admin.datatransfer", "contacts.readonly"], // optional
+        // scopes: ['admin.datatransfer', 'contacts.readonly'], // optional
         // customParams: {
-        //   login_hint: "user@example.com"
+        //   login_hint: 'user@example.com'
         // },
         redirect: true, // default is popup: true, redirect: true,
         returnAccessToken: true,
@@ -112,9 +112,9 @@ const authConfig = {
         saveUserInDatabase: true
     },
     facebook: {
-        // scopes: ["admin.datatransfer", "contacts.readonly"], // optional
+        // scopes: ['admin.datatransfer', 'contacts.readonly'], // optional
         // customParams: {
-        //   login_hint: "user@example.com"
+        //   login_hint: 'user@example.com'
         // },
         redirect: true, // default is popup: true, redirect: true,
         returnAccessToken: true,

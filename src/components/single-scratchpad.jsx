@@ -1,4 +1,3 @@
-import './single-scratchpad.css';
 import React, { Component } from 'react'
 
 import Clock from './comp-clock'

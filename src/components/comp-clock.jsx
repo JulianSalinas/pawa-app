@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { getCurrentDateString, getCurrentTimeString } from "../js/utils-time"
+import React, { Component } from 'react';
+import { getCurrentDateString, getCurrentTimeString } from '../js/utils-time'
 
 const clockStyle = {
-    color:"#777",
-    textAlign:"center",
-    fontFamily:"Roboto",
+    color:'#777',
+    textAlign:'center',
+    fontFamily:'Roboto',
     fontSize: 24,
-    fontWeight:"300"
+    fontWeight:'300'
 };
 
 const ClockFragment = props =>

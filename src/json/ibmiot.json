@@ -1,0 +1,17 @@
+{
+    "service": {
+        "id" : "a2g6k39sl6r5",
+        "api-key": "a-k9a29n-rqyzuimuib",
+        "auth-key" : "a-k9a29n-sqxy9znluo",
+        "auth-token" : "*R@RS3B*eLDuC_@53-",
+        "auth-signal": "xD0-q3LcqRAe6wJIYt"
+    },
+    "device": {
+        "org": "k9a29n",
+        "type": "Gyroscope",
+        "id": "virtualDevice1",
+        "auth-method": "token",
+        "auth-token": "Um7R8HMXOaw8L-s2d4",
+        "domain": "internetofthings.ibmcloud.com"
+    }
+}

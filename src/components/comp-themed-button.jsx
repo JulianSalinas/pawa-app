@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
+import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 
 const themes = [
-    "btn-primary", "btn-secondary", "btn-success",
-    "btn btn-danger", "btn btn-warning", "btn btn-info",
-    "btn btn-light", "btn btn-dark", "btn btn-link"
+    'btn-primary', 'btn-secondary', 'btn-success',
+    'btn btn-danger', 'btn btn-warning', 'btn btn-info',
+    'btn btn-light', 'btn btn-dark', 'btn btn-link'
 ];
 
 class ThemedButton extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { theme: props.theme || "btn-primary" }
+        this.state = { theme: props.theme || 'btn-primary' }
     }
 
     randomTheme = evt => {
@@ -21,9 +21,9 @@ class ThemedButton extends Component {
 
     render() {
         const { theme } = this.state;
-        const themeClass = theme ? theme.toLowerCase() : "secondary";
+        const themeClass = theme ? theme.toLowerCase() : 'secondary';
         return <Button
-            className={"btn " + themeClass }
+            className={'btn ' + themeClass }
             onClick={e => { this.randomTheme(e) }}>{themeClass}</Button>;
     }
   
