@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'typeface-roboto';
 import 'mdbreact/dist/css/mdb.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
@@ -13,7 +14,7 @@ const renderPage = () =>
 
     <BrowserRouter>
         <App/>
-    </BrowserRouter>
+    </BrowserRouter>;
 
 ReactDOM.render(renderPage(), document.getElementById('root'));
 registerServiceWorker();

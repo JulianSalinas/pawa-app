@@ -1,8 +1,9 @@
 {
-    "name": "react-todo",
+    "name": "pawa-app",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@material-ui/core": "^3.4.0",
         "bootstrap": "^4.1.3",
         "chart": "^0.1.2",
         "chart.js": "^2.7.2",
@@ -27,7 +28,8 @@
         "redux-form": "^7.4.2",
         "redux-thunk": "^2.3.0",
         "riot": "^3.13.0",
-        "salad-ui": "^1.1.55"
+        "salad-ui": "^1.1.55",
+        "typeface-roboto": "0.0.54"
     },
     "scripts": {
         "start": "react-scripts start",

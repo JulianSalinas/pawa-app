@@ -1,8 +1,5 @@
-import React from "react";
-
-import { Component } from "react";
-import { Button } from "mdbreact"
-import { getCurrentDateString, getCurrentTimeString } from "../utils-time"
+import React, { Component } from "react";
+import { getCurrentDateString, getCurrentTimeString } from "../js/utils-time"
 
 const clockStyle = {
     color:"#777",

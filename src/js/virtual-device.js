@@ -4,7 +4,7 @@ const CONNECT = "connect";
 const DEVICE_EVENT_SEND_POSITION = "sendPosition";
 
 console.log("Importing required modules");
-const ibmiotf = require('ibmiotf');
+const ibmiotf = require('src/js/ibmiotf');
 const getRandomPosition = require("./utils-random").getRandomPosition;
 
 console.log("Setting up connection");

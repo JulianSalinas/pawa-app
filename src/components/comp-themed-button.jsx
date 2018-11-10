@@ -1,50 +1,30 @@
 import React, { Component } from "react";
-import { Button } from "mdbreact";
+import Button from "@material-ui/core/Button";
+
+const themes = [
+    "btn-primary", "btn-secondary", "btn-success",
+    "btn btn-danger", "btn btn-warning", "btn btn-info",
+    "btn btn-light", "btn btn-dark", "btn btn-link"
+];
 
 class ThemedButton extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { 
-            theme: null, 
-            dropdownOpen: false,
-            signOut: props.signOut,
-            allThemes: ["primary", "secondary", "success", "info", "warning", "dager"]
-        }
+        this.state = { theme: props.theme || "btn-primary" }
     }
-
-    toggleDropdown = () => {
-        this.setState({ dropdownOpen: !this.state.dropdownOpen });
-    };
-
-    resetTheme = evt => {
-        evt.preventDefault();
-        this.setState({ theme: null });
-    };
 
     randomTheme = evt => {
         evt.preventDefault();
-        const themes = this.state.allThemes;
         this.setState({ theme: themes[Math.floor(Math.random() * themes.length)] });
     };
 
-    chooseTheme = (theme, evt) => {
-        evt.preventDefault();
-        this.setState({ theme });
-    };
-
     render() {
-
         const { theme } = this.state;
         const themeClass = theme ? theme.toLowerCase() : "secondary";
-
-        return (
-            <Button onClick={e => {
-                this.randomTheme(e);
-                this.state.signOut();
-            }} color={themeClass}>{theme || "Custom"} Theme</Button>
-        );
-
+        return <Button
+            className={"btn " + themeClass }
+            onClick={e => { this.randomTheme(e) }}>{themeClass}</Button>;
     }
   
 }

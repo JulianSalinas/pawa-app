@@ -4,7 +4,7 @@ const DEBUG_LEVEL = null;
 const DEVICE_EVENT = "deviceEvent";
 
 console.log("Importing required modules");
-const ibmiotf = require('ibmiotf');
+const ibmiotf = require('src/js/ibmiotf');
 
 console.log("Setting up connection");
 const config = {

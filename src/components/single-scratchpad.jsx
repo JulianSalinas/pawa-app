@@ -1,34 +1,36 @@
 import './single-scratchpad.css';
 import React, { Component } from 'react'
 
-import Clock from "./comp-clock"
-import Gauge from "./comp-gauge";
-import ThemedButton from "./comp-themed-button"
-import { appClient, DEVICE_EVENT} from "../ibmiotf"
+import Clock from './comp-clock'
+import Gauge from './comp-gauge';
+import ThemedButton from './comp-themed-button'
+import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
 import { Card, Col, Row, View, Mask, CardImage, CardBody, CardTitle, CardText, CardFooter, Button, Fa } from 'mdbreact';
 
-const logo = require("../assets/logo-1.png");
+
+
+const logo = require('../assets/logo-1.png');
 
 const centerStyle = {
-    textAlign:"center",
-    marginBottom: "1vw"
+    textAlign:'center',
+    marginBottom: '1vw'
 };
 
 const titleStyle = {
-    color:"#777",
-    textAlign:"center",
-    fontFamily:"Roboto",
-    fontWeight:"300"
+    color:'#777',
+    textAlign:'center',
+    fontFamily:'Roboto',
+    fontWeight:'300'
 };
 
 const titleLogoStyle = {
-    textAlign:"center",
-    padding:"1%"
+    textAlign:'center',
+    padding:'1%'
 };
 
 const headStyle = {
-    textAlign:"center",
-    margin:"1vw"
+    textAlign:'center',
+    margin:'1vw'
 };
 
 const Title = props =>
@@ -38,7 +40,7 @@ const Title = props =>
 
 const Logo = props =>
     <div style={titleLogoStyle}>
-        <img height={150} width={150} alt="Pawa Logo" className="img-fluid" src={logo}/>
+        <img height={150} width={150} alt='Pawa Logo' className='img-fluid' src={logo}/>
     </div>;
 
 const Head = props =>
@@ -48,7 +50,7 @@ const Head = props =>
     </div>;
 
 const Meter = props =>
-    <Col md="4" className="mb-3">
+    <Col md='4' className='mb-3'>
         <div style={{ backgroundColor:props.color }}>
             <Gauge label={props.label} value={props.value}/>
         </div>
@@ -56,13 +58,13 @@ const Meter = props =>
 
 const PositionMeters = props =>
     <Row>
-        <Col md="2"/>
-        <Meter label={"EJE X"} value={props.position.x}/>
-        <Meter label={"EJE Y"} value={props.position.y}/>
+        <Col md='2'/>
+        <Meter label={'EJE X'} value={props.position.x}/>
+        <Meter label={'EJE Y'} value={props.position.y}/>
     </Row>;
 
 const MetersLayout = props =>
-    <div className="container-fluid">
+    <div className='container-fluid'>
         <div style={centerStyle}>
             <PositionMeters position={props.position}/>
         </div>
@@ -116,7 +118,7 @@ export default class Scratchpad extends Component {
     }
 
     deviceEventCallback = (deviceType, deviceId, eventType, format, payload) => {
-        console.log("payload", payload.toString());
+        console.log('payload', payload.toString());
         this.setState({ position: JSON.parse(payload).position });
     };
 

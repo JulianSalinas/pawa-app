@@ -1,7 +1,6 @@
-import './app.css';
-import React, { Component } from 'react';
 
-import { auth, database } from "./firebase"
+import React, { Component } from 'react';
+import { auth, database } from "./js/firebase"
 import Login from "./components/single-login"
 import Dashboard from "./components/single-scratchpad"
 

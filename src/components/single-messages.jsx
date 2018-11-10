@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Button } from 'mdbreact';
-import { database } from '../firebase';
+import { database } from '../js/firebase';
 
 class MessagePage extends Component {
 

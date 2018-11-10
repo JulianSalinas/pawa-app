@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { app } from "../firebase";
+import { app } from "../js/firebase";
 import Dashboard from "./single-scratchpad";
 import withFirebaseAuth from "react-auth-firebase";
 
