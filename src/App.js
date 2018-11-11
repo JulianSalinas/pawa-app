@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import MainPage from './components/page-main'
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
-
-const hist = createBrowserHistory();
-const index = [{ path: "/", component: MainPage }];
+import Dashboard from './components/page-dashboard'
 
 const InitialPage = props =>
     <div className='flexible-content'>
-        <Router history={hist}>
-            <Switch>
-                {index.map((prop, key) => {
-                    return <Route path={prop.path} component={prop.component} key={key} />;
-                })}
-            </Switch>
-        </Router>
+        <Dashboard user={ props.user }/>
     </div>;
 
 export default class App extends Component {
@@ -28,4 +17,4 @@ export default class App extends Component {
         return <InitialPage user={ this.state.user }/>;
     }
 
-};
+}

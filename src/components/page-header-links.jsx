@@ -15,7 +15,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
 // core components
-import Button from "./comp-button-custom";
+import Button from "@material-ui/core/Button";
 
 import headerLinksStyle from "./page-header-links-styles";
 
@@ -41,6 +41,20 @@ class HeaderLinks extends React.Component {
         return (
             <div>
 
+                <Button
+                    color={window.innerWidth > 959 ? "transparent" : "white"}
+                    justIcon={window.innerWidth > 959}
+                    simple={!(window.innerWidth > 959)}
+                    aria-label="Dashboard"
+                    className={classes.buttonLink}>
+
+                    <Dashboard className={classes.icons} />
+
+                    <Hidden mdUp implementation="css">
+                        <p className={classes.linkText}>Dashboard</p>
+                    </Hidden>
+
+                </Button>
 
                 <div className={classes.manager}>
                     <Button

@@ -1,72 +1,135 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { ListGroup, ListGroupItem, Fa } from 'mdbreact';
+import React from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Icon from "@material-ui/core/Icon";
+// core components
+import HeaderLinks from "./page-header-links";
 
-const logo = require('../assets/logo-1.png');
+import sidebarStyle from "./page-side-styles";
 
-const ListItem = props => 
-    <ListGroupItem> 
-        <Fa icon={props.icon} className='mr-3'/> {props.name}
-    </ListGroupItem>;
+const Sidebar = ({ ...props }) => {
+    // verifies if routeName is the one active (in browser input)
+    function activeRoute(routeName) {
+        return props.location.pathname.indexOf(routeName) > -1 ? true : false;
+    }
+    const { classes, color, logo, image, logoText, routes } = props;
+    var links = (
+        <List className={classes.list}>
+            {routes.map((prop, key) => {
+                if (prop.redirect) return null;
+                var activePro = " ";
+                var listItemClasses;
+                if (prop.path === "/upgrade-to-pro") {
+                    activePro = classes.activePro + " ";
+                    listItemClasses = classNames({
+                        [" " + classes[color]]: true
+                    });
+                } else {
+                    listItemClasses = classNames({
+                        [" " + classes[color]]: true
+                    });
+                }
+                const whiteFontClasses = classNames({
+                    [" " + classes.whiteFont]: true
+                });
+                return (
+                    <NavLink
+                        to={prop.path}
+                        className={activePro + classes.item}
+                        activeClassName="active"
+                        key={key}
+                    >
+                        <ListItem button className={classes.itemLink + listItemClasses}>
+                            <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
+                                {typeof prop.icon === "string" ? (
+                                    <Icon>{prop.icon}</Icon>
+                                ) : (
+                                    <prop.icon />
+                                )}
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={prop.sidebarName}
+                                className={classes.itemText + whiteFontClasses}
+                                disableTypography={true}
+                            />
+                        </ListItem>
+                    </NavLink>
+                );
+            })}
+        </List>
+    );
+    var brand = (
+        <div className={classes.logo}>
+            <a href="https://www.creative-tim.com" className={classes.logoLink}>
+                <div className={classes.logoImage}>
+                    <img src={logo} alt="logo" className={classes.img} />
+                </div>
+                {logoText}
+            </a>
+        </div>
+    );
+    return (
+        <div>
+            <Hidden mdUp implementation="css">
+                <Drawer
+                    variant="temporary"
+                    anchor="right"
+                    open={props.open}
+                    classes={{
+                        paper: classes.drawerPaper
+                    }}
+                    onClose={props.handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true // Better open performance on mobile.
+                    }}
+                >
+                    {brand}
+                    <div className={classes.sidebarWrapper}>
+                        <HeaderLinks />
+                        {links}
+                    </div>
+                    {image !== undefined ? (
+                        <div
+                            className={classes.background}
+                            style={{ backgroundImage: "url(" + image + ")" }}
+                        />
+                    ) : null}
+                </Drawer>
+            </Hidden>
+            <Hidden smDown implementation="css">
+                <Drawer
+                    anchor="left"
+                    variant="permanent"
+                    open
+                    classes={{
+                        paper: classes.drawerPaper
+                    }}
+                >
+                    {brand}
+                    <div className={classes.sidebarWrapper}>{links}</div>
+                    {image !== undefined ? (
+                        <div
+                            className={classes.background}
+                            style={{ backgroundImage: "url(" + image + ")" }}
+                        />
+                    ) : null}
+                </Drawer>
+            </Hidden>
+        </div>
+    );
+};
 
-const NavItem = props =>
-    <NavLink 
-        exact={props.exact} 
-        to={props.to} 
-        activeClassName='activeClass'>
-        <ListItem icon={props.icon} name={props.name}/>
-    </NavLink>;
+Sidebar.propTypes = {
+    classes: PropTypes.object.isRequired
+};
 
-const NavDashboard = props => 
-    <NavItem 
-        exact={true} 
-        to='/'
-        name={'Dashboard'}
-        icon='pie-chart'/>;
-
-const NavProfile = props => 
-    <NavItem 
-        to='/profile'
-        name={'Profile'}
-        icon='user'/>;
-
-const NavTables = props => 
-    <NavItem
-        to='/tables'
-        name={'Tables'}
-        icon='table'/>;
-
-const NavMaps = props => 
-    <NavItem 
-        to='/maps'
-        name={'Maps'}
-        icon='map'/>;
-
-const NavMessages = props => 
-    <NavItem 
-        to='/messages'
-        name={'Messages'}
-        icon='id-card'/>;
-
-const Nav404 = props => 
-    <NavItem 
-        to='/404'
-        name={'404'}
-        icon='exclamation'/>;
-
-const NavList = props => 
-    <ListGroup className='list-group-flush'>
-        <NavDashboard/><NavProfile/><NavTables/>
-        <NavMaps/><NavMessages/><Nav404/>
-    </ListGroup>;
-
-const NavLogo = props =>
-    <a className='logo-wrapper waves-effect'>
-        <img alt='MDB React Logo' className='img-fluid' src={logo}/>
-    </a>;
-
-export default () => 
-    <div style={{background:'#4b5fff'}} className='sidebar-fixed position-fixed'>
-        <NavLogo/>
-        <NavList/>
-    </div>
+export default withStyles(sidebarStyle)(Sidebar);

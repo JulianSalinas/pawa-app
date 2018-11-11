@@ -1,15 +1,13 @@
-import {
-    drawerWidth,
-    transition,
-    container
-} from "./page-common-styles";
+import { container, transition, drawerWidth } from "./page-common-styles";
 
 export default theme => ({
+
     wrapper: {
         position: "relative",
         top: "0",
         height: "100vh"
     },
+
     mainPanel: {
         [theme.breakpoints.up("md")]: {
             width: `calc(100% - ${drawerWidth}px)`
@@ -17,18 +15,22 @@ export default theme => ({
         overflow: "auto",
         position: "relative",
         float: "right",
-        ...transition,
+        transition,
         maxHeight: "100%",
         width: "100%",
         overflowScrolling: "touch"
     },
+
     content: {
         marginTop: "70px",
         padding: "30px 15px",
-        minHeight: "calc(100vh - 123px)"
+        minHeight: "calc(100vh - 125px)"
     },
+
     container,
+
     map: {
         marginTop: "70px"
     }
+
 });

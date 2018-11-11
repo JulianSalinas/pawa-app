@@ -3,10 +3,8 @@ import {
     dangerColor
 } from "./page-common-styles";
 
-import dropdownStyle from "./comp-dropdown-style";
 
 const headerLinksStyle = theme => ({
-    ...dropdownStyle(theme),
     search: {
         "& > div": {
             marginTop: "0"
