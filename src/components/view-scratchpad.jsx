@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Clock from './comp-clock'
 import Gauge from './comp-gauge';
-import ThemedButton from './comp-themed-button'
+import ThemedButton from './comp-button-themed'
 import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
 import { Card, Col, Row, View, Mask, CardImage, CardBody, CardTitle, CardText, CardFooter, Button, Fa } from 'mdbreact';
 

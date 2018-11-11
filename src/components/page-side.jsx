@@ -7,7 +7,7 @@ const logo = require('../assets/logo-1.png');
 const ListItem = props => 
     <ListGroupItem> 
         <Fa icon={props.icon} className='mr-3'/> {props.name}
-    </ListGroupItem>
+    </ListGroupItem>;
 
 const NavItem = props =>
     <NavLink 
@@ -15,58 +15,58 @@ const NavItem = props =>
         to={props.to} 
         activeClassName='activeClass'>
         <ListItem icon={props.icon} name={props.name}/>
-    </NavLink>
+    </NavLink>;
 
 const NavDashboard = props => 
     <NavItem 
         exact={true} 
         to='/'
         name={'Dashboard'}
-        icon='pie-chart'/>
+        icon='pie-chart'/>;
 
 const NavProfile = props => 
     <NavItem 
         to='/profile'
         name={'Profile'}
-        icon='user'/>
+        icon='user'/>;
 
 const NavTables = props => 
     <NavItem
         to='/tables'
         name={'Tables'}
-        icon='table'/>
+        icon='table'/>;
 
 const NavMaps = props => 
     <NavItem 
         to='/maps'
         name={'Maps'}
-        icon='map'/>
+        icon='map'/>;
 
 const NavMessages = props => 
     <NavItem 
         to='/messages'
         name={'Messages'}
-        icon='id-card'/>
+        icon='id-card'/>;
 
 const Nav404 = props => 
     <NavItem 
         to='/404'
         name={'404'}
-        icon='exclamation'/>
+        icon='exclamation'/>;
 
 const NavList = props => 
     <ListGroup className='list-group-flush'>
         <NavDashboard/><NavProfile/><NavTables/>
         <NavMaps/><NavMessages/><Nav404/>
-    </ListGroup>
+    </ListGroup>;
 
-const NavLogo = props => 
+const NavLogo = props =>
     <a className='logo-wrapper waves-effect'>
         <img alt='MDB React Logo' className='img-fluid' src={logo}/>
-    </a>
+    </a>;
 
 export default () => 
-    <div className='sidebar-fixed position-fixed'>
+    <div style={{background:'#4b5fff'}} className='sidebar-fixed position-fixed'>
         <NavLogo/>
         <NavList/>
     </div>

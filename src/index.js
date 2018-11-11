@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './material.css';
 import 'typeface-roboto';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 
 import App from './app';
 import registerServiceWorker from './service-worker';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-const renderPage = () => 
+const renderPage = () =>
 
     <BrowserRouter>
         <App/>

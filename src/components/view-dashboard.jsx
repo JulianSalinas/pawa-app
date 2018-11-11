@@ -21,8 +21,13 @@ let DefaultDashBoard = props =>
 
 export default class Dashboard extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = { user: require('../json/norealuser') };
+    }
+
     render() {
-        return <DefaultDashBoard user={ this.props.user }/>;
+        return <DefaultDashBoard user={ this.state.user }/>;
     }
 
 }

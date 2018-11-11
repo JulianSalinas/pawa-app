@@ -1,30 +1,56 @@
-import React from 'react';
-import { MDBFooter,  Button, Fa } from 'mdbreact';
+import React from "react";
+import PropTypes from "prop-types";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import ListItem from "@material-ui/core/ListItem";
+import List from "@material-ui/core/List";
+// core components
+import footerStyle from "./page-footer-styles";
 
-export default () => 
-    
-<MDBFooter color='blue' className='text-center font-small darken-2'>
+function Footer({ ...props }) {
+    const { classes } = props;
+    return (
+        <footer className={classes.footer}>
+            <div className={classes.container}>
+                <div className={classes.left}>
+                    <List className={classes.list}>
+                        <ListItem className={classes.inlineBlock}>
+                            <a href="#home" className={classes.block}>
+                                Home
+                            </a>
+                        </ListItem>
+                        <ListItem className={classes.inlineBlock}>
+                            <a href="#company" className={classes.block}>
+                                Company
+                            </a>
+                        </ListItem>
+                        <ListItem className={classes.inlineBlock}>
+                            <a href="#portfolio" className={classes.block}>
+                                Portfolio
+                            </a>
+                        </ListItem>
+                        <ListItem className={classes.inlineBlock}>
+                            <a href="#blog" className={classes.block}>
+                                Blog
+                            </a>
+                        </ListItem>
+                    </List>
+                </div>
+                <p className={classes.right}>
+          <span>
+            &copy; {1900 + new Date().getYear()}{" "}
+              <a href="https://www.creative-tim.com" className={classes.a}>
+              Creative Tim
+            </a>, made with love for a better web
+          </span>
+                </p>
+            </div>
+        </footer>
+    );
+}
 
-    {/* <div className='pt-4'>
-        <Button outline color='white'>Download MDB<Fa icon='download' className='ml-2'/></Button>
-        <Button outline color='white'>Start free tutorial<Fa icon='graduation-cap' className='ml-2'/></Button>
-    </div>
+Footer.propTypes = {
+    classes: PropTypes.object.isRequired
+};
 
-    <br/> */}
-
-    {/* <div className='pb-4'>
-        <Fa icon='facebook' className='mr-3'/>
-        <Fa icon='twitter' className='mr-3'/>
-        <Fa icon='youtube' className='mr-3'/>
-        <Fa icon='google-plus' className='mr-3'/>
-        <Fa icon='dribbble' className='mr-3'/>
-        <Fa icon='pinterest' className='mr-3'/>
-        <Fa icon='github' className='mr-3'/>
-        <Fa icon='codepen' className='mr-3'/>
-    </div> */}
-
-    <p className='footer-copyright mb-0 py-4 text-center'>
-        &copy; {new Date().getFullYear()} Copyright
-    </p>
-
-</MDBFooter>
+export default withStyles(footerStyle)(Footer);
