@@ -1,47 +1,70 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
 
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
-
 import dashboardTheme from "./page-dashboard-theme";
 import withStyles from "@material-ui/core/styles/withStyles";
 
+import Sidebar from "./page-side";
 import Header from "./page-header";
 import Footer from "./page-footer";
-import Sidebar from "./page-side";
-import Routes from "./page-dashboard-routes";
 
 import logo from "../assets/logo-1.png";
-import image from "../assets/anime-2.jpg";
+import image from "../assets/material-1.png";
+import routes from './page-dashboard-routes'
+import { Redirect, Route, Switch } from "react-router-dom";
 
-const getRoute = (prop, key) => {
-    return prop.redirect ?
-        <Redirect from={prop.path} to={prop.to} key={key} /> :
-        <Route path={prop.path} component={prop.component} key={key} />;
-};
-
-const SwitchRoutes = () =>
-    <Switch> { Routes.map((prop, key) => getRoute(prop, key))} </Switch>;
+const DashboardRoutes = () =>
+    <Switch> {routes.map((prop, key) => prop.redirect ?
+        <Redirect from={prop.path} to={prop.to} key={key}/> :
+        <Route path={prop.path} component={prop.component} key={key}/>)}
+    </Switch>;
 
 const DashboardSidebar = props =>
     <Sidebar
-        routes={Routes}
-        logo={logo}
-        logoText={"Pawa"}
-        image={image}
-        handleDrawerToggle={props.handleDrawerToggle}
+        routes={routes}
+        logo={props.logo}
+        image={props.sideImage}
+        company={props.company}
         open={props.mobileOpen}
-        color="blue"/>;
+        color={props.accentColor}
+        handleToggle={props.handleToggle}
+        {...props} />;
+
+const DashboardHeader = props =>
+    <Header
+        routes={routes}
+        handleToggle={props.handleToggle} {...props} />;
+
+const DashboardFooter = props =>
+    <Footer
+        year={props.year}
+        company={props.company}/>;
+
+const DashboardContent = props =>
+    <div className={props.content}>
+        <div className={props.container}>
+            <DashboardRoutes/>
+        </div>
+    </div>;
 
 class Dashboard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { activeRoute: null, mobileOpen: false };
+        this.state = {
+            year: 2018,
+            logo: logo,
+            company: "Pawa",
+            sideImage: image,
+            mobileOpen: false,
+            activeRoute: null,
+            accentColor: "purple",
+            currentUser: require('../json/norealuser'),
+        };
     }
 
-    handleDrawerToggle = () => {
+    handleToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });
     };
 
@@ -51,9 +74,8 @@ class Dashboard extends Component {
     };
 
     componentDidMount() {
-        if (navigator.platform.indexOf("Win") > -1) {
+        if (navigator.platform.indexOf("Win") > -1)
             new PerfectScrollbar(this.refs.mainPanel);
-        }
         window.addEventListener("resize", this.resizeFunction);
     }
 
@@ -62,18 +84,21 @@ class Dashboard extends Component {
     }
 
     render() {
-
         const { classes, ...rest } = this.props;
-
         return (
             <div className={classes.wrapper}>
-                <DashboardSidebar handleDrawerToggle={this.handleDrawerToggle} mobileOpen={this.state.mobile}/>
+                <DashboardSidebar
+                    logo={this.state.logo}
+                    image={this.state.sideImage}
+                    company={this.state.company}
+                    open={this.state.mobileOpen}
+                    color={this.state.accentColor}
+                    handleToggle={this.handleToggle}
+                    {...rest} />
                 <div className={classes.mainPanel} ref="mainPanel">
-                    <Header routes={Routes} handleDrawerToggle={this.handleDrawerToggle} {...rest}/>
-                    <div className={classes.content}>
-                        <div className={classes.container}><SwitchRoutes/></div>
-                    </div>
-                    <Footer/>
+                    <DashboardHeader handleToggle={this.handleToggle} {...rest} />
+                    <DashboardContent container={classes.container} content={classes.content}/>
+                    <DashboardFooter year={this.state.year} company={this.state.company}/>
                 </div>
             </div>
         );

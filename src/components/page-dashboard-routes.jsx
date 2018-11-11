@@ -1,32 +1,35 @@
+import React from "react";
+
 import Person from "@material-ui/icons/Person";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Unarchive from "@material-ui/icons/Unarchive";
 
-import DashboardPage from "./view-stadistics.jsx";
+import { Redirect } from "react-router-dom";
+import SetupDevice from "./view-not-found.jsx";
 import UserProfile from "./view-scratchpad.jsx";
-import UpgradeToPro from "./view-not-found.jsx";
+import DashboardPage from "./view-stadistics.jsx";
 
 const routes = [
     {
         path: "/dashboard",
-        sidebarName: "Dashboard",
-        navbarName: "Material Dashboard",
+        sidebarName: "Mis estadísticas",
+        navbarName: "Mis estadísticas",
         icon: Dashboard,
         component: DashboardPage
     },
     {
         path: "/user",
-        sidebarName: "User Profile",
-        navbarName: "Profile",
+        sidebarName: "Mi perfil",
+        navbarName: "Mi perfil",
         icon: Person,
         component: UserProfile
     },
     {
         path: "/calibrate",
-        sidebarName: "Upgrade To PRO",
-        navbarName: "Upgrade To PRO",
+        sidebarName: "Calibrar",
+        navbarName: "Calibrar",
         icon: Unarchive,
-        component: UpgradeToPro
+        component: SetupDevice
     },
     {
         redirect: true,
