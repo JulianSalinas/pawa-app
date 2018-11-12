@@ -57,7 +57,7 @@ class Dashboard extends Component {
         sideImage: image,
         mobileOpen: false,
         activeRoute: "/dashboard",
-        accentColor: "red",
+        accentColor: "blue",
         currentUser: require('../json/norealuser'),
     };
 

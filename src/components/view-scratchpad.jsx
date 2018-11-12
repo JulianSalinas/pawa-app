@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import Clock from './comp-clock'
 import Gauge from './comp-gauge';
 import ThemedButton from './comp-button-themed'
-// import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
+import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
 import { Col, Row } from 'mdbreact';
-
 
 const logo = require('../assets/logo-1.png');
 
@@ -31,17 +30,17 @@ const headStyle = {
     margin:'1vw'
 };
 
-const Title = props =>
+const Title = () =>
     <h1 style={titleStyle}>
         The Pawa of Pudu
     </h1>;
 
-const Logo = props =>
+const Logo = () =>
     <div style={titleLogoStyle}>
         <img height={150} width={150} alt='Pawa Logo' className='img-fluid' src={logo}/>
     </div>;
 
-const Head = props =>
+const Head = () =>
     <div style={headStyle}>
         <Logo/>
         <Title/>
@@ -68,69 +67,63 @@ const MetersLayout = props =>
         </div>
     </div>;
 
-const StartButton = props =>
+const StartButton = () =>
     <div style={centerStyle}>
         <ThemedButton/>
     </div>;
 
-const BottomClock = props =>
+const BottomClock = () =>
     <div style={centerStyle}>
         <Clock/>
     </div>;
 
-const UserInfo = props =>
-    <div style={centerStyle}>
-        { props.user.photoURL }
+const Fragment = props =>
+    <div>
+        <Head/>
         <hr/>
-        { props.user.displayName }
-        <hr/>
-        { props.user.email }
+        <StartButton/>
+        <MetersLayout position={props.position}/>
+        <BottomClock/>
     </div>;
 
-const Fragment = props => {
-
-    const { signOut } = props;
-
-    return (
-        <div>
-            <Head/>
-            <hr/>
-            <StartButton/>
-            <MetersLayout position={props.position}/>
-            <BottomClock/>
-            <hr/>
-            <UserInfo user={props.user}/>
-            <button onClick={ signOut }>Log out</button>
-        </div>
-    );
+const getIncrement = (x1, x2) => {
+    return (x1 === x2) ? 0 : (x1 > x2) ? 1 : -1;
 };
 
 export default class Scratchpad extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: props.user || require('../json/norealuser'),
-            error: props.error,
-            signOut: props.signOut,
-            deviceId: null, deviceType: null, position:{ x: 15, y: 16}
-        };
-    }
+    state = {
+        user: require('../json/norealuser'),
+        deviceId: null,
+        deviceType: null,
+        position:{ x: 15, y: 16 },
+        animatedPosition: { x: 15, y: 16 }
+    };
 
     deviceEventCallback = (deviceType, deviceId, eventType, format, payload) => {
         console.log('payload', payload.toString());
         this.setState({ position: JSON.parse(payload).position });
     };
 
+    update = () => {
+        this.setState({
+            animatedPosition: {
+                x:this.state.animatedPosition.x + getIncrement(this.state.position.x, this.state.animatedPosition.x),
+                y:this.state.animatedPosition.y + getIncrement(this.state.position.y, this.state.animatedPosition.y),
+            }
+        })
+    };
+
     componentDidMount(){
-        // appClient.on(DEVICE_EVENT, this.deviceEventCallback);
+        appClient.on(DEVICE_EVENT, this.deviceEventCallback);
+        setInterval(this.update, 150);
     }
 
     render(){
         return <Fragment user={ this.state.user }
                          error={ this.state.error }
                          signOut={ this.state.signOut }
-                         position={ this.state.position }/>;
+                         position={ this.state.animatedPosition }/>;
     }
 
 }

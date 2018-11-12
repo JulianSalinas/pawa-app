@@ -9,15 +9,15 @@ import DashboardPage from "./view-stadistics.jsx";
 const routes = [
     {
         path: "/dashboard",
-        sidebarName: "Mis estadísticas",
-        navbarName: "Mis estadísticas",
+        sidebarName: "Estadísticas",
+        navbarName: "Estadísticas",
         icon: Dashboard,
         component: DashboardPage
     },
     {
-        path: "/user",
-        sidebarName: "Mi perfil",
-        navbarName: "Mi perfil",
+        path: "/profile",
+        sidebarName: "Perfil",
+        navbarName: "Perfil",
         icon: Person,
         component: UserProfile
     },

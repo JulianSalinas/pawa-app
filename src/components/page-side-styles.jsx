@@ -48,7 +48,11 @@ const sidebarStyle = theme => ({
     },
     logo: {
         position: "relative",
-        padding: "15px 15px",
+        width: "100%",
+        paddingLeft: "4.0rem",
+        paddingRight: "4.0rem",
+        paddingTop: "3.0rem",
+        paddingBottom: "2.0rem",
         zIndex: "4",
         "&:after": {
             content: '""',
@@ -123,9 +127,26 @@ const sidebarStyle = theme => ({
         position: "relative",
         display: "block",
         textDecoration: "none",
+        marginLeft: "10px",
+        marginRight: "10px",
         "&:hover,&:focus,&:visited,&": {
             color: "#FFFFFF"
         }
+    },
+    itemButton: {
+        display: "block",
+        marginLeft: "15px",
+        marginRight: "15px",
+        [theme.breakpoints.up("lg")]: {
+            position: "absolute",
+            width: "90%",
+            bottom: "20px"
+        }
+    },
+    activeItem: {
+        marginLeft: "15px",
+        marginRight: "15px",
+        backgroundColor: "#f24336"
     },
     itemLink: {
         width: "auto",
@@ -135,7 +156,6 @@ const sidebarStyle = theme => ({
         position: "relative",
         display: "block",
         padding: "10px 15px",
-        backgroundColor: "transparent",
         ...defaultFont
     },
     itemIcon: {
