@@ -5,6 +5,12 @@ import {
 
 
 const headerLinksStyle = theme => ({
+    linksContainer: {
+        width: "100vw",
+        textAlign: "right",
+        display:"table-cell",
+        paddingRight: "5px"
+    },
     search: {
         "& > div": {
             marginTop: "0"
@@ -98,12 +104,13 @@ const headerLinksStyle = theme => ({
         },
         display: "inline-block"
     },
-    searchWrapper: {
+    exitButtonWrapper: {
         [theme.breakpoints.down("sm")]: {
             width: "-webkit-fill-available",
             margin: "10px 15px 0"
         },
-        display: "inline-block"
+        display: "inline-block",
+        marginLeft: "10px"
     }
 });
 

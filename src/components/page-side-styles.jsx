@@ -130,7 +130,7 @@ const sidebarStyle = theme => ({
     itemLink: {
         width: "auto",
         transition: "all 300ms linear",
-        margin: "10px 15px 0",
+        margin: "15px 15px 0",
         borderRadius: "3px",
         position: "relative",
         display: "block",
@@ -140,21 +140,15 @@ const sidebarStyle = theme => ({
     },
     itemIcon: {
         width: "24px",
-        height: "30px",
+        height: "24px",
         fontSize: "24px",
         lineHeight: "30px",
         float: "left",
-        marginRight: "15px",
-        textAlign: "center",
-        verticalAlign: "middle",
+        block:"inline-block",
         color: "rgba(255, 255, 255, 0.8)"
     },
     itemText: {
-        ...defaultFont,
-        margin: "0",
-        lineHeight: "30px",
-        fontSize: "14px",
-        color: "#FFFFFF"
+        fontSize: "14px"
     },
     whiteFont: {
         color: "#FFFFFF"

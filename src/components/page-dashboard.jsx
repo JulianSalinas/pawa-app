@@ -50,19 +50,16 @@ const DashboardContent = props =>
 
 class Dashboard extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            year: 2018,
-            logo: logo,
-            company: "Pawa",
-            sideImage: image,
-            mobileOpen: false,
-            activeRoute: null,
-            accentColor: "purple",
-            currentUser: require('../json/norealuser'),
-        };
-    }
+    state = {
+        year: 2018,
+        logo: logo,
+        company: "Pawa",
+        sideImage: image,
+        mobileOpen: false,
+        activeRoute: "/dashboard",
+        accentColor: "red",
+        currentUser: require('../json/norealuser'),
+    };
 
     handleToggle = () => {
         this.setState({ mobileOpen: !this.state.mobileOpen });

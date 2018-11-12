@@ -1,58 +1,44 @@
 import React from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+
+import Menu from "@material-ui/icons/Menu";
+import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Hidden from "@material-ui/core/Hidden";
-// @material-ui/icons
-import Menu from "@material-ui/icons/Menu";
-// core components
-import HeaderLinks from "./page-header-links";
-import Button from "@material-ui/core/Button";
 
+import HeaderLinks from "./page-top";
 import headerStyle from "./page-header-styles";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-function Header({ ...props }) {
-    function makeBrand() {
-        var name;
-        props.routes.map((prop, key) => {
-            if (prop.path === props.location.pathname) {
-                name = prop.navbarName;
-            }
-            return null;
-        });
-        return name;
-    }
-    const { classes, color } = props;
-    const appBarClasses = classNames({
-        [" " + classes[color]]: color
-    });
-    return (
-        <AppBar className={classes.appBar + appBarClasses}>
-            <Toolbar className={classes.container}>
-                <Hidden smDown implementation="css">
-                    <HeaderLinks />
-                </Hidden>
-                <Hidden mdUp implementation="css">
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={props.handleToggle}
-                    >
-                        <Menu />
-                    </IconButton>
-                </Hidden>
-            </Toolbar>
-        </AppBar>
-    );
-}
+const HiddenHeaderLinks = () =>
+    <Hidden smDown implementation="css">
+        <HeaderLinks/>
+    </Hidden>;
 
-Header.propTypes = {
-    classes: PropTypes.object.isRequired,
-    color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
-};
+const HamburgerMenu = props =>
+    <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={props.handleToggle}>
+        <Menu/>
+    </IconButton>;
+
+const HiddenHamburgerMenu = props =>
+    <Hidden mdUp implementation="css">
+        <HamburgerMenu handleToggle={props.handleToggle}/>
+    </Hidden>;
+
+const ToolbarHeader = props =>
+    <AppBar className={props.appBar}>
+        <Toolbar className={props.container}>
+            <HiddenHeaderLinks/>
+            <HiddenHamburgerMenu handleToggle={props.handleToggle}/>
+        </Toolbar>
+    </AppBar>;
+
+const Header = ({ classes, ...props }) =>
+    <ToolbarHeader appBar={classes.appBar}
+                   container={classes.container}
+                   handleToggle={props.handleToggle}/>;
 
 export default withStyles(headerStyle)(Header);

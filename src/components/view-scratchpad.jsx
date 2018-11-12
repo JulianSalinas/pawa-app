@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import Clock from './comp-clock'
 import Gauge from './comp-gauge';
 import ThemedButton from './comp-button-themed'
-import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
-import { Card, Col, Row, View, Mask, CardImage, CardBody, CardTitle, CardText, CardFooter, Button, Fa } from 'mdbreact';
-
+// import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
+import { Col, Row } from 'mdbreact';
 
 
 const logo = require('../assets/logo-1.png');
@@ -81,9 +80,11 @@ const BottomClock = props =>
 
 const UserInfo = props =>
     <div style={centerStyle}>
-        <text>{ props.user.displayName }</text>
-        <text>{ props.user.email }</text>
-        <text>{ props.user.photoURL }</text>
+        { props.user.photoURL }
+        <hr/>
+        { props.user.displayName }
+        <hr/>
+        { props.user.email }
     </div>;
 
 const Fragment = props => {
@@ -122,7 +123,7 @@ export default class Scratchpad extends Component {
     };
 
     componentDidMount(){
-        appClient.on(DEVICE_EVENT, this.deviceEventCallback);
+        // appClient.on(DEVICE_EVENT, this.deviceEventCallback);
     }
 
     render(){

@@ -41,11 +41,7 @@
     "react-swipeable-views": "0.12.17",
     "redux": "^4.0.1",
     "redux-form": "^7.4.2",
-    "redux-thunk": "^2.3.0",
-    "riot": "^3.13.1",
-    "salad-ui": "^1.1.55",
-    "semantic-ui-react": "^0.83.0",
-    "typeface-roboto": "0.0.54"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,11 +57,5 @@
     "color": "#FF6D00",
     "icon": null,
     "createdAt": 1537756858864
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }

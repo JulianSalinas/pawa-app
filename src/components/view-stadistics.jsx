@@ -7,9 +7,11 @@ let UserImageStyle = {
 
 let UserInformation = props =>
     <div>
-        <text> { props.user.displayName } </text>
-        <text> { props.user.email } </text>
-        <img style={UserImageStyle} src={ props.user.photoURL } />
+        <img style={UserImageStyle} src={props.user.photoURL} alt={props.user.displayName}/>
+        <hr/>
+        {props.user.displayName}
+        <hr/>
+        {props.user.email}
     </div>;
 
 let DefaultDashBoard = props =>
