@@ -60,6 +60,9 @@ class Sidebar extends Component {
         let brand = (
             <div className={classes.logo}>
                 <NavLogo/>
+                <div className={classes.company}>
+                    {this.props.company}
+                </div>
             </div>
         );
 
@@ -75,7 +78,7 @@ class Sidebar extends Component {
                         ModalProps={{ keepMounted: true }}>
                         {brand}
                         <div className={classes.sidebarWrapper}>
-                            <HeaderLinks/>
+                            {/*<HeaderLinks/>*/}
                             {links}
                         </div>
                         {image !== undefined ? (

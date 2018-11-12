@@ -52,7 +52,7 @@ const sidebarStyle = theme => ({
         paddingLeft: "4.0rem",
         paddingRight: "4.0rem",
         paddingTop: "3.0rem",
-        paddingBottom: "2.0rem",
+        paddingBottom: "1.5rem",
         zIndex: "4",
         "&:after": {
             content: '""',
@@ -111,7 +111,7 @@ const sidebarStyle = theme => ({
             content: '""',
             display: "block",
             background: "#000",
-            opacity: ".8"
+            opacity: ".5"
         }
     },
     list: {
@@ -172,6 +172,14 @@ const sidebarStyle = theme => ({
     },
     whiteFont: {
         color: "#FFFFFF"
+    },
+    company: {
+        fontSize: "24px",
+        fontFamily: "Roboto",
+        color: "#FFFFFF",
+        textAlign: "center",
+        fontWeight: "500",
+        paddingTop: "1.0rem",
     },
     purple: {
         backgroundColor: primaryColor,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 let UserImageStyle = {
-    width: '50px',
-    height: '50px'
+    width: '75px',
+    height: '75px'
 };
 
 let UserInformation = props =>
@@ -14,11 +14,12 @@ let UserInformation = props =>
         {props.user.email}
     </div>;
 
-let DefaultDashBoard = props =>
+let ProfileDashboard = props =>
     <div>
-        <div>Hola soy el dashboard</div>
+        <div>Mi perfil</div>
         <hr/>
         <UserInformation user={ props.user }/>
+        <hr/>
     </div>;
 
 export default class Dashboard extends Component {
@@ -29,7 +30,7 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        return <DefaultDashBoard user={ this.state.user }/>;
+        return <ProfileDashboard user={ this.state.user }/>;
     }
 
 }
