@@ -75,7 +75,10 @@ class Notifications extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-
+                <div>
+                    <div>Configuración</div>
+                    <hr/>
+                </div>;
                 <Card className="col-6">
                     <CardHeader color="danger">
                         <h4 className={classes.cardTitleWhite}>Notificación</h4>

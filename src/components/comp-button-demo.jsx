@@ -23,7 +23,10 @@ class DemoButton extends Component {
         const themeClass = theme ? theme.toLowerCase() : 'secondary';
         return <Button
             className={'btn ' + themeClass }
-            onClick={e => { this.changeTheme(e) }}>{this.state.text}</Button>;
+            onClick={e => {
+                this.changeTheme(e);
+                this.props.onClick();
+            }}>{this.state.text}</Button>;
     }
   
 }

@@ -18,4 +18,3 @@ function onConnectCallback(){
 
 appClient.on(CONNECT, onConnectCallback);
 console.log('Trying to connect to Pawa Iot Platform');
-appClient.connect();

@@ -3,8 +3,11 @@ import React, { Component } from 'react'
 import Clock from './comp-clock'
 import Gauge from './comp-gauge';
 import DemoButton from "./comp-button-demo";
-import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
+
 import { Col, Row } from 'mdbreact';
+import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
+import { deviceClient, CONNECT, DISCONNECT, DEVICE_EVENT_SEND_POSITION } from '../js/virtual-device'
+import {getRandomPosition} from "../js/utils-random";
 
 const logo = require('../assets/pawa-1.png');
 
@@ -67,9 +70,11 @@ const MetersLayout = props =>
         </div>
     </div>;
 
-const StartButton = () =>
+const StartButton = props =>
     <div style={centerStyle}>
-        <DemoButton/>
+        <DemoButton onClick={ () => props.isConnected ?
+            deviceClient.disconnect() :
+            deviceClient.connect() }/>
     </div>;
 
 const BottomClock = () =>
@@ -81,7 +86,7 @@ const Fragment = props =>
     <div>
         <Head/>
         <hr/>
-        <StartButton/>
+        <StartButton isConnected={props.isConnected}/>
         <MetersLayout position={props.position}/>
         <BottomClock/>
     </div>;
@@ -90,39 +95,94 @@ const getIncrement = (x1, x2) => {
     return (x1 === x2) ? 0 : (x1 > x2) ? 1 : -1;
 };
 
+
+
+// deviceClient.on(ERROR, function (argument) {
+//     console.log('An error occur while connecting device');
+//     console.log(argument);
+// });
+
+
 export default class Scratchpad extends Component {
 
     state = {
-        user: require('../json/norealuser'),
+        firstTime: true,
         deviceId: null,
         deviceType: null,
+        isConnected: false,
         position:{ x: 15, y: 16 },
-        animatedPosition: { x: 15, y: 16 }
+        animatedPosition: { x: 15, y: 16 },
+        user: require('../json/norealuser')
     };
 
     deviceEventCallback = (deviceType, deviceId, eventType, format, payload) => {
         console.log('payload', payload.toString());
-        this.setState({ position: JSON.parse(payload).position });
+        this.setState({
+            deviceId: deviceId,
+            deviceType: deviceType,
+            position: JSON.parse(payload).position
+        });
     };
 
-    update = () => {
-        this.setState({
-            animatedPosition: {
-                x:this.state.animatedPosition.x + getIncrement(this.state.position.x, this.state.animatedPosition.x),
-                y:this.state.animatedPosition.y + getIncrement(this.state.position.y, this.state.animatedPosition.y),
-            }
-        })
+    deviceConnectedCallback = () => {
+        let deviceId = deviceClient.manage(4000, false, true);
+        console.log('Device connected!');
+        console.log('DevideId: ' + deviceId);
+        this.setState({ isConnected: true });
+        this.publicationInterval = setInterval(this.publishInformationFromVirtualDevice, 3000);
+    };
+
+    deviceDisconnectedCallback = () => {
+        console.log('Device disconnected!');
+        this.setState({ isConnected: false });
+        clearInterval(this.publicationInterval)
+    };
+
+    deviceReconnectedCallback = () => {
+        console.log('Device reconnected!');
+    };
+
+    publishInformationFromVirtualDevice = () => {
+        deviceClient.publish(DEVICE_EVENT_SEND_POSITION, JSON, { position: getRandomPosition() }, 0);
+        console.log('Sending information');
+    };
+
+    updateAnimatedPosition = () => {
+        const realX = this.state.position.x;
+        const realY = this.state.position.y;
+        const animatedX = this.state.animatedPosition.x;
+        const animatedY = this.state.animatedPosition.y;
+        this.setState({ animatedPosition: {
+            x:animatedX + getIncrement(realX, animatedX),
+            y:animatedY + getIncrement(realY, animatedY)
+        }})
     };
 
     componentDidMount(){
-        appClient.on(DEVICE_EVENT, this.deviceEventCallback);
-        setInterval(this.update, 150);
+        console.log("First time", this.state.firstTime);
+        if (this.state.firstTime) {
+            appClient.on(DEVICE_EVENT, this.deviceEventCallback);
+            appClient.connect();
+            deviceClient.on(CONNECT, this.deviceConnectedCallback);
+            deviceClient.on(DISCONNECT, this.deviceDisconnectedCallback);
+            deviceClient.on('reconnect', this.deviceReconnectedCallback);
+            this.setState({ firstTime: false});
+        }
+        this.animationInterval = setInterval(this.updateAnimatedPosition, 150);
+    }
+
+    componentWillUnmount() {
+        appClient.disconnect();
+        if (this.state.isConnected) deviceClient.disconnect();
+        clearInterval(this.animationInterval);
+        clearInterval(this.publicationInterval);
     }
 
     render(){
         return <Fragment user={ this.state.user }
                          error={ this.state.error }
                          signOut={ this.state.signOut }
+                         isConnected={ this.state.isConnected }
                          position={ this.state.animatedPosition }/>;
     }
 
