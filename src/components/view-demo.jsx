@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import Clock from './comp-clock'
 import Gauge from './comp-gauge';
-import ThemedButton from './comp-button-themed'
+import DemoButton from "./comp-button-demo";
 import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
 import { Col, Row } from 'mdbreact';
 
-const logo = require('../assets/logo-1.png');
+const logo = require('../assets/pawa-1.png');
 
 const centerStyle = {
     textAlign:'center',
@@ -56,8 +56,8 @@ const Meter = props =>
 const PositionMeters = props =>
     <Row>
         <Col md='2'/>
-        <Meter label={'EJE X'} value={props.position.x}/>
-        <Meter label={'EJE Y'} value={props.position.y}/>
+        <Meter label={'Ángulo X'} value={props.position.x}/>
+        <Meter label={'Ángulo Y'} value={props.position.y}/>
     </Row>;
 
 const MetersLayout = props =>
@@ -69,7 +69,7 @@ const MetersLayout = props =>
 
 const StartButton = () =>
     <div style={centerStyle}>
-        <ThemedButton/>
+        <DemoButton/>
     </div>;
 
 const BottomClock = () =>

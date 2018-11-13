@@ -9,14 +9,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import HeaderLinks from "./page-top";
 import sidebarStyle from "./page-side-styles";
 import TurnedButton from "./comp-button-turned";
-import Calibrate from "@material-ui/icons/Unarchive";
 
 const NavLogo = () =>
     <a className="logo-wrapper waves-effect">
-        <img alt="Logo" className="img-fluid" src={require('../assets/logo-2.png')}/>
+        <img alt="Logo" className="img-fluid" src={require('../assets/pawa-2.png')}/>
     </a>;
 
 class Sidebar extends Component {

@@ -67,7 +67,7 @@ const routes = [
     {
         redirect: true,
         path: "/",
-        to: "/dashboard",
+        to: "/stats",
         navbarName: "Redirect"
     }
 ];

@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
@@ -16,6 +17,7 @@ import Notifications from "@material-ui/icons/Notifications";
 import Button from "./comp-button";
 import headerLinksStyle from "./page-top-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {NavLink} from "react-router-dom";
 
 const dummyNotifications = [
     "Es hora de hacer tus ejercicios",
@@ -48,17 +50,19 @@ class HeaderLinks extends React.Component {
         return (
             <div className={classes.linksContainer}>
 
-                <Button
-                    aria-label="Mis estadísticas"
-                    className={classes.buttonLink}
-                    justIcon={window.innerWidth > 959}
-                    simple={!(window.innerWidth > 959)}
-                    color={window.innerWidth > 959 ? "transparent" : "white"}>
-                    <Dashboard className={classes.icons}/>
-                    <Hidden mdUp implementation="css">
-                        <p className={classes.linkText}>Mis estadísticas</p>
-                    </Hidden>
-                </Button>
+                <NavLink to="./stats">
+                    <Button
+                        aria-label="Mis estadísticas"
+                        className={classes.buttonLink}
+                        justIcon={window.innerWidth > 959}
+                        simple={!(window.innerWidth > 959)}
+                        color={window.innerWidth > 959 ? "transparent" : "white"}>
+                        <Dashboard className={classes.icons}/>
+                        <Hidden mdUp implementation="css">
+                            <p className={classes.linkText}>Mis estadísticas</p>
+                        </Hidden>
+                    </Button>
+                </NavLink>
 
                 <Button
                     aria-haspopup="true"
@@ -76,7 +80,7 @@ class HeaderLinks extends React.Component {
                     </Hidden>
                 </Button>
 
-                <Poppers open={open} anchorEl={this.anchorEl} transition>
+                <Poppers open={open} anchorEl={this.anchorEl} transition disablePortal>
                     {({ TransitionProps }) => (
                         <Grow {...TransitionProps}  id="menu-list-grow">
                             <Paper>
@@ -92,17 +96,19 @@ class HeaderLinks extends React.Component {
                     )}
                 </Poppers>
 
-                <Button
-                    aria-label="Mi perfil"
-                    className={classes.buttonLink}
-                    justIcon={window.innerWidth > 959}
-                    simple={!(window.innerWidth > 959)}
-                    color={window.innerWidth > 959 ? "transparent" : "white"}>
-                    <Person className={classes.icons}/>
-                    <Hidden mdUp implementation="css">
-                        <p className={classes.linkText}>Mi perfil</p>
-                    </Hidden>
-                </Button>
+                <NavLink to="./profile">
+                    <Button
+                        aria-label="Mi perfil"
+                        className={classes.buttonLink}
+                        justIcon={window.innerWidth > 959}
+                        simple={!(window.innerWidth > 959)}
+                        color={window.innerWidth > 959 ? "transparent" : "white"}>
+                        <Person className={classes.icons}/>
+                        <Hidden mdUp implementation="css">
+                            <p className={classes.linkText}>Mi perfil</p>
+                        </Hidden>
+                    </Button>
+                </NavLink>
 
                 <div className={classes.exitButtonWrapper}>
                     <Button color="danger" aria-label="edit" justIcon round>
