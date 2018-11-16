@@ -1,0 +1,8 @@
+{
+    "keyPath": "./aws/virtual-device-3/virtual-device-3.private.key",
+    "certPath": "./aws/virtual-device-3/virtual-device-3.cert.pem",
+    "caPath": "./aws/virtual-device-3/root-CA.crt",
+    "clientId": "virtual-device-3",
+    "host": "a1szaqlx86giyq-ats.iot.us-west-2.amazonaws.com",
+    "debug": "true"
+}

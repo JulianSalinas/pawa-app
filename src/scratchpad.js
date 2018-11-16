@@ -1,32 +1,20 @@
-const LocalDateTime = require('js-joda').LocalDateTime;
-const DateTimeFormatter = require('js-joda').DateTimeFormatter;
-   
-function getCurrentDateString(){
-    return LocalDateTime.now().format(DateTimeFormatter.ofPattern('dd/MM/yyyy'))
-}
+let awsIot = require('aws-iot-device-sdk');
 
-function getCurrentTimeString(){
-    return LocalDateTime.now().format(DateTimeFormatter.ofPattern('hh:m:ss'))
-}
+//
+// Replace the values of '<YourUniqueClientIdentifier>' and '<YourCustomEndpoint>'
+// with a unique client identifier and custom host endpoint provided in AWS IoT.
+// NOTE: client identifiers must be unique within your AWS account; if a client attempts
+// to connect with a client identifier which is already in use, the existing
+// connection will be terminated.
+//
+const config = require('./json/awsconfig');
+// console.log('config', config);
+let thingShadows = awsIot.thingShadow(config);
 
-const currentPath = './src/assets/';
-
-function getAllBackgrounds(path, callback) {
-    const fs = require('fs');
-    fs.readdir(path, callback);
-}
-
-console.log(getCurrentDateString());
-console.log(getCurrentTimeString());
-
-getAllBackgrounds(currentPath, (error, filenames) => {
-    if (!error){
-        console.log("Backgrounds retrieved!");
-        filenames = filenames.map(filename => currentPath + filename);
-        console.log(filenames);
-    }
-    else {
-        console.log("Error retrieving backgrounds!");
-        console.log(error);
-    }
-});
+//
+// This will print a console message when the connection to AWS IoT
+// completes.
+//
+// thingShadows.on('connect', function() {
+//     console.log('Connected to AWS IoT');
+// });
