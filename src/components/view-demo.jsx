@@ -5,8 +5,9 @@ import Gauge from './comp-gauge';
 import DemoButton from "./comp-button-demo";
 
 import { Col, Row } from 'mdbreact';
-import { appClient, DEVICE_EVENT} from '../js/ibmiotf'
-import { deviceClient, CONNECT, DISCONNECT, DEVICE_EVENT_SEND_POSITION } from '../js/virtual-device'
+import { appClient } from '../js/virtual-service'
+import { deviceClient } from '../js/virtual-device'
+import { CONNECT, DISCONNECT, DEVICE_EVENT, DEVICE_EVENT_SEND_POSITION } from '../js/virtual-constants'
 import {getRandomPosition} from "../js/utils-random";
 
 const logo = require('../assets/pawa-1.png');
@@ -102,6 +103,7 @@ const getIncrement = (x1, x2) => {
 //     console.log(argument);
 // });
 
+appClient.connect();
 
 export default class Scratchpad extends Component {
 
@@ -159,20 +161,16 @@ export default class Scratchpad extends Component {
     };
 
     componentDidMount(){
-        console.log("First time", this.state.firstTime);
-        if (this.state.firstTime) {
-            appClient.on(DEVICE_EVENT, this.deviceEventCallback);
-            appClient.connect();
-            deviceClient.on(CONNECT, this.deviceConnectedCallback);
-            deviceClient.on(DISCONNECT, this.deviceDisconnectedCallback);
-            deviceClient.on('reconnect', this.deviceReconnectedCallback);
-            this.setState({ firstTime: false});
-        }
+        appClient.on(DEVICE_EVENT, this.deviceEventCallback);
+        deviceClient.on(CONNECT, this.deviceConnectedCallback);
+        deviceClient.on(DISCONNECT, this.deviceDisconnectedCallback);
+        deviceClient.on('reconnect', this.deviceReconnectedCallback);
+        this.setState({ firstTime: false});
         this.animationInterval = setInterval(this.updateAnimatedPosition, 150);
     }
 
     componentWillUnmount() {
-        appClient.disconnect();
+        // appClient.disconnect();
         if (this.state.isConnected) deviceClient.disconnect();
         clearInterval(this.animationInterval);
         clearInterval(this.publicationInterval);

@@ -1,7 +1,6 @@
 /**
- * Módulo encargado de realizar operaciones relacionadas con fechas 
+ * Module to do operations related with dates
  */
-
 const LocalDateTime = require('js-joda').LocalDateTime;
 const DateTimeFormatter = require('js-joda').DateTimeFormatter; 
 

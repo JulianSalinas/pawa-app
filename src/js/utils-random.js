@@ -15,4 +15,4 @@ function getRandomPosition(){
     }
 }
 
-module.exports = { getRandomInt, getRandomGrade, getRandomPosition };
+module.exports = { getRandomPosition };
