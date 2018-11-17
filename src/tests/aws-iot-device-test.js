@@ -1,6 +1,6 @@
 const awsIot = require('aws-iot-device-sdk');
 
-const config = require('../../aws/virtual-device-1');
+const config = require('../aws/virtual-device-1');
 const device = awsIot.device(config);
 
 device.on('connect', function() {

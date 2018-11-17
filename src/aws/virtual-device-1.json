@@ -1,7 +1,7 @@
 {
-    "keyPath": "aws/virtual-device-1.key",
-    "certPath": "aws/virtual-device-1.cert",
-    "caPath": "aws/aws-root-ca.cert",
+    "keyPath": "src/aws/virtual-device-1.key",
+    "certPath": "src/aws/virtual-device-1.cert",
+    "caPath": "src/aws/aws-root-ca.cert",
     "clientId": "virtual-device-1",
     "region": "us-west-2",
     "host": "a1szaqlx86giyq-ats.iot.us-west-2.amazonaws.com",
