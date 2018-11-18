@@ -1,10 +1,14 @@
-export const IS_DEBUG = false;
-export const DEBUG_LEVEL = null;
-export const DEVICE_EVENT = 'deviceEvent';
+module.exports.IS_DEBUG = false;
+module.exports.DEBUG_LEVEL = null;
+module.exports.DEVICE_EVENT = 'deviceEvent';
 
-export const JSON = 'json';
-export const ERROR = 'error';
-export const CONNECT = 'connect';
-export const RECONNECT = 'reconnect';
-export const DISCONNECT = 'disconnect';
-export const DEVICE_EVENT_SEND_POSITION = 'sendPosition';
+module.exports.JSON = 'json';
+module.exports.ERROR = 'error';
+
+module.exports.CONNECT = 'connect';
+module.exports.DISCONNECT = 'close';
+module.exports.RECONNECT = 'reconnect';
+
+module.exports.TIMEOUT = 'timeout';
+module.exports.MESSAGE = 'message';
+module.exports.DEVICE_EVENT_SEND_POSITION = 'sendPosition';
