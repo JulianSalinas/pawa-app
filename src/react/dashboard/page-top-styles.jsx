@@ -1,7 +1,7 @@
 import {
     defaultFont,
     dangerColor
-} from "./page-styles";
+} from "./commons-styles";
 
 
 const pageTopStyles = theme => ({

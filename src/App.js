@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dashboard from './react/dashboard/page-dashboard'
+import Dashboard from './react/dashboard/dashboard-layout'
 
 const InitialPage = props =>
     <div className='flexible-content'>

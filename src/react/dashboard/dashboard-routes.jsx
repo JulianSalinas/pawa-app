@@ -17,50 +17,43 @@ import AchievementsPage from "../views/view-achievements.jsx";
 const routes = [
     {
         path: "/stats",
-        sidebarName: "Estadísticas",
-        navbarName: "Estadísticas",
+        name: "Estadísticas",
         icon: Dashboard,
         component: StatsPage
     },
     {
         path: "/achievements",
-        sidebarName: "Logros",
-        navbarName: "Logros",
+        name: "Logros",
         icon: Gamepad,
         component: AchievementsPage
     },
     {
         path: "/exercises",
-        sidebarName: "Ejercicios",
-        navbarName: "Ejercicios",
+        name: "Ejercicios",
         icon: Accessibility,
         component: ExercisesPage
     },
     {
         path: "/tips",
-        sidebarName: "Tips",
-        navbarName: "Tips",
+        name: "Tips",
         icon: Info,
         component: TipsPage
     },
     {
         path: "/profile",
-        sidebarName: "Perfil",
-        navbarName: "Perfil",
+        name: "Perfil",
         icon: Person,
         component: ProfilePAge
     },
     {
         path: "/settings",
-        sidebarName: "Configuración",
-        navbarName: "Configuración",
+        name: "Configuración",
         icon: Settings,
         component: SettingsPage
     },
     {
         path: "/demo",
-        sidebarName: "Demo",
-        navbarName: "Demo",
+        name: "Demo",
         icon: OnDemandVideo,
         component: DemoPage
     },
@@ -68,7 +61,6 @@ const routes = [
         redirect: true,
         path: "/",
         to: "/stats",
-        navbarName: "Redirect"
     }
 ];
 

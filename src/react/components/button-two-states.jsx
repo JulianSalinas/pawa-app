@@ -22,8 +22,9 @@ class TurnedButton extends Component {
         const { theme } = this.state;
         const themeClass = theme ? theme.toLowerCase() : 'secondary';
         return <Button
+            variant="contained"
             className={'btn ' + themeClass }
-            style={{ display:"block", textAlign:"center", width:"98%" }}
+            style={{ display:"block", textAlign:"center", width:"100%" }}
             onClick={e => { this.changeTheme(e) }}>{this.state.text}</Button>;
     }
   

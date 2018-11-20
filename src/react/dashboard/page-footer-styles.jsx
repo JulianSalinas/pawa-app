@@ -2,7 +2,7 @@ import {
     defaultFont,
     container,
     primaryColor
-} from "./page-styles";
+} from "./commons-styles";
 
 const pageFooterStyles = {
     block: {

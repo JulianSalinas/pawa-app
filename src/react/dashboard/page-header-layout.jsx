@@ -6,7 +6,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 
-import HeaderLinks from "./page-top";
+import HeaderLinks from "./page-top-layout";
 import pageHeaderStyles from "./page-header-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 

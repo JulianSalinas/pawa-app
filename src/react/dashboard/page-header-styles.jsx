@@ -7,7 +7,7 @@ import {
     successColor,
     warningColor,
     dangerColor
-} from "./page-styles";
+} from "./commons-styles";
 
 const pageHeaderStyles = theme => ({
     appBar: {

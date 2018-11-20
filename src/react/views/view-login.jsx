@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { app } from '../../js/firebase';
-import Dashboard from '../dashboard/page-dashboard';
+import Dashboard from '../dashboard/dashboard-layout';
 import withFirebaseAuth from 'react-auth-firebase';
 
 class Login extends Component {

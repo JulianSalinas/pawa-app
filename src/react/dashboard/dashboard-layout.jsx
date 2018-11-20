@@ -2,16 +2,16 @@ import React, { Component } from "react";
 
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
-import dashboardTheme from "./page-theme";
+import dashboardTheme from "./dashboard-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import Sidebar from "./page-side";
-import Header from "./page-header";
-import Footer from "./page-footer";
+import Sidebar from "./page-side-layout";
+import Header from "./page-header-layout";
+import Footer from "./page-footer-layout";
 
 import logo from "../../assets/logo-1.png";
 import image from "../../assets/material-1.png";
-import routes from './page-routes'
+import routes from './dashboard-routes'
 import { Redirect, Route, Switch } from "react-router-dom";
 
 const DashboardRoutes = () =>

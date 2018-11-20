@@ -6,7 +6,7 @@ import {
   warningBoxShadow,
   dangerBoxShadow,
   roseBoxShadow
-} from "../dashboard/page-styles.jsx";
+} from "../dashboard/commons-styles.jsx";
 
 const compSnackbarStyle = {
   root: {

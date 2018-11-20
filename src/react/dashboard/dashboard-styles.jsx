@@ -1,4 +1,4 @@
-import { container, transition, drawerWidth } from "./page-styles";
+import { container, transition, drawerWidth } from "./commons-styles";
 
 export default theme => ({
 
