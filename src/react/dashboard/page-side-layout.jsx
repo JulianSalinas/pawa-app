@@ -10,12 +10,12 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import sidebarStyle from "./page-side-styles";
+import sideLayoutStyle from "./page-side-styles";
 import ButtonTwoStates from "../components/button-two-states";
 
 const NavLogo = () =>
     <a className="logo-wrapper waves-effect">
-        <img alt="Logo" className="img-fluid" src={require('../../assets/pawa-3.png')}/>
+        <img alt="Logo" className="img-fluid" src={require('../../assets/img-pawa-3.png')}/>
     </a>;
 
 const LogoWrapper = props =>
@@ -29,13 +29,18 @@ const DeviceButton = props =>
     </ListItem>;
 
 const SideMenuIcon = props =>
+    typeof props.icon === "string" ?
+        <img src={props.icon} alt="img" width="24" height="24" /> :
+        <props.icon/>;
+
+const SideMenuIconItem = props =>
     <ListItemIcon className={props.itemIcon}>
-        <props.icon/>
+        <SideMenuIcon icon={props.icon}/>
     </ListItemIcon>;
 
 const SideMenuLink = props =>
     <ListItem className={props.itemLink}>
-        <SideMenuIcon {...props}/>
+        <SideMenuIconItem {...props}/>
         <ListItemText disableTypography={true} primary={props.name}/>
     </ListItem>;
 
@@ -64,13 +69,13 @@ const SideMenuRoutes = props =>
 
 const SideMenuWrapper = props =>
     <div className={props.sidebar}>
+        <LogoWrapper {...props}/>
         <SideMenuRoutes {...props}/>
     </div>;
 
 const FixedNavDrawer = props =>
     // Add one level of curly braces like classes={{paper:props.paper}}
     <Drawer anchor="left" variant="permanent" open classes={{paper:props.fixedDrawer}}>
-        <LogoWrapper {...props}/>
         <SideMenuWrapper {...props}/>
     </Drawer>;
 
@@ -82,7 +87,6 @@ const TempNavDrawer = props =>
         classes={{paper: props.tempDrawer}}
         onClose={props.handleToggle}
         ModalProps={{ keepMounted: true }}>
-        <LogoWrapper {...props}/>
         <SideMenuWrapper {...props}/>
     </Drawer>;
 
@@ -102,4 +106,4 @@ const SideLayout = props =>
         <FixedNavDrawerWrapper {...props} {...props.classes}/>
     </div>;
 
-export default withStyles(sidebarStyle)(SideLayout);
+export default withStyles(sideLayoutStyle)(SideLayout);

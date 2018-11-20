@@ -1,13 +1,16 @@
-import {boxShadow, defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
+import {defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
 
 const sidebarStyle = () => ({
     sidebar: {
         zIndex: "4",
         width: "260px",
+        height: "100vh",
         overflow: "auto",
         position: "relative",
-        height: "calc(100vh - 75px)",
-        overflowScrolling: "touch"
+        overflowScrolling: "touch",
+        border: "1px solid #999999",
+        // borderTopRightRadius: "5px",
+        // borderBottomRightRadius: "5px"
     },
     fixedDrawer: {
         top: "0",
@@ -16,8 +19,7 @@ const sidebarStyle = () => ({
         position: "fixed",
         overflowY: "visible",
         textAlign: "left",
-        width: drawerWidth,
-        ...defaultBoxShadow
+        width: drawerWidth
     },
     tempDrawer: {
         top: "0",
@@ -45,14 +47,14 @@ const sidebarStyle = () => ({
     item: {
         color: "#999",
         display: "block",
-        fontSize: "16px",
-        fontWeight: "400",
+        fontSize: "20px", // 16
+        fontWeight: "300", // 400
         textDecoration: "none",
         position: "relative",
         marginTop: "10px",
         marginRight: "23px",
         marginLeft: "-1px",
-        border: "1px solid #dedede", // #dedede
+        border: "1px solid #999999", // #dedede
         // borderTopRightRadius: "5px",
         // borderBottomRightRadius: "5px",
         "&:hover": { color: "#999" }
@@ -64,10 +66,11 @@ const sidebarStyle = () => ({
     },
     itemActive: {
         color: "#FFF",
-        paddingLeft: "8px",
+        // paddingLeft: "8px",
+        // marginRight: "15px",
         backgroundColor: "#999999",
-        borderTopRightRadius: "5px",
-        borderBottomRightRadius: "5px",
+        // borderTopRightRadius: "5px",
+        // borderBottomRightRadius: "5px",
         "&:hover": { color: "#FFF" }
     },
     itemIcon: {

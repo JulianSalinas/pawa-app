@@ -9,8 +9,8 @@ import Sidebar from "./page-side-layout";
 import Header from "./page-header-layout";
 import Footer from "./page-footer-layout";
 
-import logo from "../../assets/logo-1.png";
-import image from "../../assets/material-1.png";
+import logo from "../../assets/img-logo-1.png";
+import image from "../../assets/img-material-1.png";
 import routes from './dashboard-routes'
 import { Redirect, Route, Switch } from "react-router-dom";
 

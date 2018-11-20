@@ -1,61 +1,58 @@
-import Info from "@material-ui/icons/Info";
-import Person from "@material-ui/icons/Person";
-import Gamepad from "@material-ui/icons/Gamepad";
-import Settings from "@material-ui/icons/Settings";
-import Dashboard from "@material-ui/icons/PieChart";
-import Accessibility from "@material-ui/icons/Accessibility";
-import OnDemandVideo from "@material-ui/icons/OndemandVideo";
+import React from "react";
 
 import DemoPage from "../views/view-demo.jsx";
 import TipsPage from "../views/view-tips.jsx";
-import StatsPage from "../views/view-metrics.jsx";
+import MetricsPage from "../views/view-metrics.jsx";
 import ProfilePAge from "../views/view-profile.jsx";
 import SettingsPage from "../views/view-settings.jsx";
 import ExercisesPage from "../views/view-exercises.jsx";
 import AchievementsPage from "../views/view-achievements.jsx";
 
+import SettingsIcon from "@material-ui/icons/Settings"
+import DemoIcon from "@material-ui/icons/OndemandVideo"
+
 const routes = [
     {
-        path: "/stats",
-        name: "Estadísticas",
-        icon: Dashboard,
-        component: StatsPage
+        path: "/metrics",
+        name: "Métricas",
+        component: MetricsPage,
+        icon: require('../../assets/icon-metrics.png')
     },
     {
         path: "/achievements",
         name: "Logros",
-        icon: Gamepad,
-        component: AchievementsPage
+        component: AchievementsPage,
+        icon: require('../../assets/icon-achivement.png')
     },
     {
         path: "/exercises",
         name: "Ejercicios",
-        icon: Accessibility,
-        component: ExercisesPage
+        component: ExercisesPage,
+        icon: require('../../assets/icon-exercises.png')
     },
     {
         path: "/tips",
         name: "Tips",
-        icon: Info,
-        component: TipsPage
+        component: TipsPage,
+        icon: require('../../assets/icon-tips.png')
     },
     {
         path: "/profile",
         name: "Perfil",
-        icon: Person,
-        component: ProfilePAge
+        component: ProfilePAge,
+        icon: require('../../assets/icon-profile.png')
     },
     {
         path: "/settings",
         name: "Configuración",
-        icon: Settings,
-        component: SettingsPage
+        component: SettingsPage,
+        icon: SettingsIcon
     },
     {
         path: "/demo",
         name: "Demo",
-        icon: OnDemandVideo,
-        component: DemoPage
+        component: DemoPage,
+        icon: DemoIcon
     },
     {
         redirect: true,
