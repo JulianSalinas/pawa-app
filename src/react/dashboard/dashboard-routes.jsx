@@ -1,12 +1,12 @@
 import React from "react";
 
-import DemoPage from "../views/view-demo.jsx";
-import TipsPage from "../views/view-tips.jsx";
-import MetricsPage from "../views/view-metrics.jsx";
-import ProfilePAge from "../views/view-profile.jsx";
-import SettingsPage from "../views/view-settings.jsx";
-import ExercisesPage from "../views/view-exercises.jsx";
-import AchievementsPage from "../views/view-achievements.jsx";
+import DemoPage from "../views/view-demo-layout.jsx";
+import TipsPage from "../views/view-tips-layout.jsx";
+import MetricsPage from "../views/view-metrics-layout.jsx";
+import ProfilePAge from "../views/view-profile-layout.jsx";
+import SettingsPage from "../views/view-settings-layout.jsx";
+import ExercisesPage from "../views/view-exercises-layout.jsx";
+import AchievementsPage from "../views/view-achievements-layout.jsx";
 
 import SettingsIcon from "@material-ui/icons/Settings"
 import DemoIcon from "@material-ui/icons/OndemandVideo"
@@ -14,7 +14,7 @@ import DemoIcon from "@material-ui/icons/OndemandVideo"
 const routes = [
     {
         path: "/metrics",
-        name: "Métricas",
+        name: "Estadísticas",
         component: MetricsPage,
         icon: require('../../assets/icon-metrics.png')
     },
@@ -57,7 +57,7 @@ const routes = [
     {
         redirect: true,
         path: "/",
-        to: "/stats",
+        to: "/metrics",
     }
 ];
 

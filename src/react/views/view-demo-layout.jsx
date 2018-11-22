@@ -17,6 +17,12 @@ const centerStyle = {
     marginBottom: '1vw'
 };
 
+const buttonStyle = {
+    width: "300px",
+    textAlign:'center',
+    margin: "15px auto"
+};
+
 const titleStyle = {
     color:'#777',
     textAlign:'center',
@@ -35,19 +41,20 @@ const headStyle = {
 };
 
 const Title = () =>
-    <h1 style={titleStyle}>
-        The Pawa of Pudu
-    </h1>;
+    <h2 style={titleStyle}>
+        PÁGINA PARA PRUEBAS
+    </h2>;
 
 const Logo = () =>
     <div style={titleLogoStyle}>
         <img height={150} width={150} alt='Pawa Logo' className='img-fluid' src={logo}/>
     </div>;
 
-const Head = () =>
+const Head = props =>
     <div style={headStyle}>
         <Logo/>
         <Title/>
+        <StartButton {...props}/>
     </div>;
 
 const Meter = props =>
@@ -72,7 +79,7 @@ const MetersLayout = props =>
     </div>;
 
 const StartButton = props =>
-    <div style={centerStyle}>
+    <div style={buttonStyle}>
         <DemoButton onClick={ () => props.isConnected ?
             deviceClient.disconnect() :
             deviceClient.connect() }/>
@@ -85,9 +92,8 @@ const BottomClock = () =>
 
 const Fragment = props =>
     <div>
-        <Head/>
+        <Head {...props}/>
         <hr/>
-        <StartButton isConnected={props.isConnected}/>
         <MetersLayout position={props.position}/>
         <BottomClock/>
     </div>;

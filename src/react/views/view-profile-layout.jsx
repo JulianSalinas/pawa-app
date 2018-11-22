@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import styles from "./view-metrics-styles";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import Subtitle from '../components/comp-subtitle'
+const Icon = require('../../assets/icon-profile-accent.png');
 
 let UserImageStyle = {
     width: '75px',
@@ -16,13 +21,13 @@ let UserInformation = props =>
 
 let ProfileDashboard = props =>
     <div>
-        <div>Mi perfil</div>
+        <Subtitle text="Perfil" icon={Icon}/>
         <hr/>
         <UserInformation user={ props.user }/>
         <hr/>
     </div>;
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
 
     constructor(props) {
         super(props);
@@ -34,3 +39,5 @@ export default class Dashboard extends Component {
     }
 
 }
+
+export default withStyles(styles)(Dashboard);

@@ -1,4 +1,5 @@
 import {
+  primaryColor,
   defaultFont,
   primaryBoxShadow,
   infoBoxShadow,
@@ -51,7 +52,7 @@ const compSnackbarStyle = {
     ...dangerBoxShadow
   },
   primary: {
-    backgroundColor: "#af2cc5",
+    backgroundColor: primaryColor,
     color: "#ffffff",
     ...primaryBoxShadow
   },
@@ -97,7 +98,7 @@ const compSnackbarStyle = {
     color: "#f55a4e"
   },
   primaryIcon: {
-    color: "#af2cc5"
+    color: primaryColor
   },
   roseIcon: {
     color: "#eb3573"

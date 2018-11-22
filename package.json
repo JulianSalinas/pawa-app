@@ -1,8 +1,8 @@
 {
-  "name": "pawa-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+    "name": "pawa-app",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
     "@material-ui/core": "^3.4.0",
     "@material-ui/icons": "^3.0.1",
     "@types/googlemaps": "3.30.13",
@@ -45,26 +45,26 @@
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.2"
-  },
-  "scripts": {
+},
+"scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "firebase deploy"
-  },
-  "guppy": {
+    "deploy": "firebase deploy",
+    "amazon": "aws s3 sync build/ s3://pawa-app"
+},
+"guppy": {
     "id": "react-todo",
     "name": "react-todo",
     "type": "create-react-app",
     "color": "#FF6D00",
     "icon": null,
     "createdAt": 1537756858864
-  },
-  "browserslist": [
+},
+"browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
-}
+]}

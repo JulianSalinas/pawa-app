@@ -1,39 +1,14 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Favorite from "@material-ui/icons/Favorite";
+import Favorite from "@material-ui/icons/Star";
 
 import Button from "@material-ui/core/Button";
 import Snackbar from "../components/comp-snackbar.jsx";
 
-const styles = {
-    cardCategoryWhite: {
-        "&,& a,& a:hover,& a:focus": {
-            color: "rgba(255,255,255,.62)",
-            margin: "0",
-            fontSize: "14px",
-            marginTop: "0",
-            marginBottom: "0"
-        },
-        "& a,& a:hover,& a:focus": {
-            color: "#FFFFFF"
-        }
-    },
-    cardTitleWhite: {
-        color: "#FFFFFF",
-        marginTop: "0px",
-        minHeight: "auto",
-        fontWeight: "300",
-        fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-        marginBottom: "3px",
-        textDecoration: "none",
-        "& small": {
-            color: "#777",
-            fontSize: "65%",
-            fontWeight: "400",
-            lineHeight: "1"
-        }
-    }
-};
+import styles from "./view-settings-styles";
+import Subtitle from "../components/comp-subtitle";
+
+import Icon from '@material-ui/icons/Settings'
 
 class Notifications extends React.Component {
     constructor(props) {
@@ -63,10 +38,8 @@ class Notifications extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                <div>
-                    <div>Configuración</div>
-                    <hr/>
-                </div>;
+                <Subtitle text="Configuración" icon={Icon}/>
+                <hr/>
 
                 <Button color="success" onClick={() => this.showNotification("br")}>
                     Toca para crear un notificación
@@ -74,7 +47,7 @@ class Notifications extends React.Component {
 
                 <Snackbar
                     place="br"
-                    color="success"
+                    color="primary"
                     icon={Favorite}
                     message="Has ganado un trofeo por tu primera visita a la aplicación"
                     open={this.state.br}

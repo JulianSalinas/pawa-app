@@ -14,7 +14,7 @@ const onTheme = {
 const buttonTheme = theme => ({
     color: theme.color,
     backgroundColor: theme.backgroundColor,
-    display:"block", textAlign:"center", width:"100%"
+    textAlign:"center", width:"100%"
 });
 
 class TurnedButton extends Component {
