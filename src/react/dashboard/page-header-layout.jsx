@@ -6,13 +6,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 
-import HeaderLinks from "./page-top-layout";
-import pageHeaderStyles from "./page-header-styles";
+import HeaderToolbar from "./page-header-toolbar";
+import headerStyles from "./page-header-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const HiddenHeaderLinks = () =>
+const HeaderToolbarWrapper = () =>
     <Hidden smDown implementation="css">
-        <HeaderLinks/>
+        <HeaderToolbar/>
     </Hidden>;
 
 const HamburgerMenu = props =>
@@ -23,22 +23,23 @@ const HamburgerMenu = props =>
         <Menu/>
     </IconButton>;
 
-const HiddenHamburgerMenu = props =>
+const HamburgerMenuWrapper = props =>
     <Hidden mdUp implementation="css">
         <HamburgerMenu handleToggle={props.handleToggle}/>
     </Hidden>;
 
-const ToolbarHeader = props =>
-    <AppBar className={props.appBar}>
-        <Toolbar className={props.container}>
-            <HiddenHeaderLinks/>
-            <HiddenHamburgerMenu handleToggle={props.handleToggle}/>
-        </Toolbar>
+const HeaderToolbarContainerWrapper = props =>
+    <Toolbar className={props.toolbar}>
+        <HeaderToolbarWrapper {...props}/>
+        <HamburgerMenuWrapper {...props}/>
+    </Toolbar>;
+
+const HeaderAppBarWrapper = props =>
+    <AppBar className={props.appbar}>
+        <HeaderToolbarContainerWrapper {...props}/>
     </AppBar>;
 
-const Header = ({ classes, ...props }) =>
-    <ToolbarHeader appBar={classes.appBar}
-                   container={classes.container}
-                   handleToggle={props.handleToggle}/>;
+const HeaderLayout = ({ classes, ...props }) =>
+    <HeaderAppBarWrapper {...props} {...classes}/>;
 
-export default withStyles(pageHeaderStyles)(Header);
+export default withStyles(headerStyles)(HeaderLayout);

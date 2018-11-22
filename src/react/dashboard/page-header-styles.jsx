@@ -1,79 +1,63 @@
-import {
-    container,
-    defaultFont,
-    primaryColor,
-    defaultBoxShadow,
-    infoColor,
-    successColor,
-    warningColor,
-    dangerColor
-} from "./commons-styles";
-
 const pageHeaderStyles = theme => ({
-    appBar: {
-        backgroundColor: "transparent",
-        boxShadow: "none",
-        borderBottom: "0",
-        marginBottom: "0",
-        position: "absolute",
+    appbar: {
+        color: "#999",
         width: "100%",
-        paddingTop: "10px",
-        zIndex: "1029",
-        color: "#555555",
-        border: "0",
-        borderRadius: "3px",
-        padding: "10px 0",
-        transition: "all 150ms ease 0s",
-        minHeight: "50px",
-        display: "block"
+        display: "block",
+        minHeight: "66px",
+        boxShadow: "none",
+        position: "absolute",
+        backgroundColor: "#ebebeb",
+        transition: "all 150ms ease 0s"
     },
-    container: {
-        ...container,
-        minHeight: "50px"
+    toolbar: {
+        display:"flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        // backgroundColor: "#F12",
+        justifyContent: "flex-end"
     },
-    flex: {
-        flex: 1
+    profileStyle: {
+        color: "#666666",
+        marginRight: "15px",
+        display: "inline-block",
+        verticalAlign: "middle",
+        // fontSize: "20px", // 16
+        fontWeight: "500",
+        textDecoration: "none",
+        // backgroundColor: "#141dff"
     },
-    title: {
-        ...defaultFont,
-        lineHeight: "30px",
-        fontSize: "18px",
-        borderRadius: "3px",
-        textTransform: "none",
-        color: "inherit",
-        margin: "0",
-        "&:hover,&:focus": {
-            background: "transparent"
-        }
+    medalIcon:{
+        width: "15px",
+        height: "15px",
+        marginRight: "5px"
     },
-    appResponsive: {
-        top: "8px"
+    profileIcon: {
+        color: "#999",
+        width: "35px",
+        height: "35px",
+        marginRight: "30px"
     },
-    primary: {
-        backgroundColor: primaryColor,
-        color: "#FFFFFF",
-        ...defaultBoxShadow
+    notificationSpan: {
+        zIndex: "4",
+        top: "2px",
+        right: "4px",
+        color: "#FFF",
+        height: "16px",
+        fontSize: "9px",
+        minWidth: "16px",
+        display: "block",
+        lineHeight: "16px",
+        textAlign: "center",
+        borderRadius: "10px",
+        position: "absolute",
+        background: "#66b5bc",
+        verticalAlign: "middle",
+        border: "1px solid #FFF",
     },
-    info: {
-        backgroundColor: infoColor,
-        color: "#FFFFFF",
-        ...defaultBoxShadow
+    exitIcon: {
+        color: "#999",
+        fontSize: "2em"
     },
-    success: {
-        backgroundColor: successColor,
-        color: "#FFFFFF",
-        ...defaultBoxShadow
-    },
-    warning: {
-        backgroundColor: warningColor,
-        color: "#FFFFFF",
-        ...defaultBoxShadow
-    },
-    danger: {
-        backgroundColor: dangerColor,
-        color: "#FFFFFF",
-        ...defaultBoxShadow
-    }
 });
 
 export default pageHeaderStyles;

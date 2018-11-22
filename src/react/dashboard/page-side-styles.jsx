@@ -1,4 +1,4 @@
-import {defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
+import {primaryColor, defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
 
 const sidebarStyle = () => ({
     sidebar: {
@@ -42,7 +42,7 @@ const sidebarStyle = () => ({
         position: "relative",
         paddingTop: "3.5rem",
         paddingBottom: "3.0rem",
-        backgroundColor: "#66b5bc"
+        backgroundColor: primaryColor
     },
     item: {
         color: "#999",
