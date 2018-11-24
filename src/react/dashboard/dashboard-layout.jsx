@@ -2,8 +2,11 @@ import React, { Component } from "react";
 
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
-import dashboardTheme from "./dashboard-styles";
+
+import dashboardTheme from "./dashboard-theme"
+import dashboardStyles from "./dashboard-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
+import MuiThemeProvider from "@material-ui/core/es/styles/MuiThemeProvider";
 
 import Sidebar from "./page-side-layout";
 import Header from "./page-header-layout";
@@ -81,17 +84,19 @@ class Dashboard extends Component {
     render() {
         const { classes, ...rest } = this.props;
         return (
-            <div className={classes.wrapper}>
-                <DashboardSidebar{...this.state} {...rest} handleToggle={this.handleToggle}/>
-                <div className={classes.panel} ref="panel">
-                    <DashboardHeader handleToggle={this.handleToggle} {...rest} />
-                    <DashboardContent container={classes.container} content={classes.content}/>
-                    <DashboardFooter year={this.state.year} company={this.state.company}/>
+            <MuiThemeProvider theme={dashboardTheme}>
+                <div className={classes.wrapper} >
+                    <DashboardSidebar {...this.state} {...rest} handleToggle={this.handleToggle}/>
+                    <div className={classes.panel} ref="panel">
+                        <DashboardHeader handleToggle={this.handleToggle} {...rest} />
+                        <DashboardContent container={classes.container} content={classes.content}/>
+                        <DashboardFooter year={this.state.year} company={this.state.company}/>
+                    </div>
                 </div>
-            </div>
+            </MuiThemeProvider>
         );
     }
 }
 
-export default withStyles(dashboardTheme)(Dashboard);
+export default withStyles(dashboardStyles)(Dashboard);
 

@@ -25,18 +25,15 @@ const PerformMeterImage = props =>
         <img style={imgStyle} src={getImage(props.value)}/>
     </div>;
 
-const getIncrement = (x1, x2) => {
-    return (x1 === x2) ? 0 : (x1 > x2) ? 10 : -10;
+const getIncrement = (value, animatedValue) => {
+    return (value === animatedValue) ? 0 : (value > animatedValue) ? 10 : -10;
 };
 
 class PerformMeter extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            value: props.value,
-            animatedValue: 100
-        };
+        this.state = { value: props.value, animatedValue: props.value };
     }
 
     updateValue = () => {
@@ -50,8 +47,8 @@ class PerformMeter extends Component {
     };
 
     componentDidMount() {
-        setInterval(this.updateValue, 1000);
-        setInterval(this.updateAnimation, 200);
+        setInterval(this.updateValue, 3000);
+        setInterval(this.updateAnimation, 500);
     };
 
     render() {

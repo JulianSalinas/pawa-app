@@ -1,6 +1,6 @@
 import {primaryColor, defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
 
-const sidebarStyle = () => ({
+const sidebarStyle = theme => ({
     sidebar: {
         zIndex: "4",
         width: "260px",
@@ -42,7 +42,7 @@ const sidebarStyle = () => ({
         position: "relative",
         paddingTop: "3.5rem",
         paddingBottom: "3.0rem",
-        backgroundColor: primaryColor
+        backgroundColor: theme.palette.primary.main
     },
     item: {
         color: "#999",
