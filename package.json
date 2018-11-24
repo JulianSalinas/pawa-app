@@ -28,6 +28,7 @@
         "react-dom": "^16.6.1",
         "react-router-dom": "^4.3.1",
         "react-scripts": "^2.1.1",
+        "react-sweet-progress": "^1.1.2",
         "uuid": "^3.3.2"
     },
     "scripts": {
@@ -51,5 +52,8 @@
         "not dead",
         "not ie <= 11",
         "not op_mini all"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
     ]
 }

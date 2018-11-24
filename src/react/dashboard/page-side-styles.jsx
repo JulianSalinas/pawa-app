@@ -8,9 +8,8 @@ const sidebarStyle = theme => ({
         overflow: "auto",
         position: "relative",
         overflowScrolling: "touch",
+        // backgroundColor: theme.palette.primary.main
         border: "1px solid #999999",
-        // borderTopRightRadius: "5px",
-        // borderBottomRightRadius: "5px"
     },
     fixedDrawer: {
         top: "0",
@@ -66,9 +65,11 @@ const sidebarStyle = theme => ({
     },
     itemActive: {
         color: "#FFF",
+        // color: "#999",
         // paddingLeft: "8px",
         // marginRight: "15px",
         backgroundColor: "#999999",
+        // backgroundColor: "#FFF",
         // borderTopRightRadius: "5px",
         // borderBottomRightRadius: "5px",
         "&:hover": { color: "#FFF" }

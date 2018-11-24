@@ -1,17 +1,16 @@
-import { primaryColor, container, transition, drawerWidth } from "../dashboard/commons-styles";
+
 
 export default theme => ({
 
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
+        flexGrow: 1,
     },
-    formControl: {
-        margin: theme.spacing.unit,
-        minWidth: 120,
+    paper: {
+        padding: theme.spacing.unit,
     },
-    selectEmpty: {
-        marginTop: theme.spacing.unit * 2,
+    control: {
+        margin: theme.spacing.unit * 2,
+        padding: theme.spacing.unit * 2,
     }
 
 });

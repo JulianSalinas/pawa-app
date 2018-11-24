@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'react-sweet-progress/lib/style.css';
 import 'mdbreact/dist/css/mdb.css'
 import './css/material.css';
 
