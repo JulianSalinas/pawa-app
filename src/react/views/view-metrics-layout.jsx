@@ -13,6 +13,7 @@ import FormLabel from "@material-ui/core/FormLabel/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
 import Radio from "@material-ui/core/Radio/Radio";
+import {primaryColor} from "../dashboard/commons-styles";
 
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
@@ -22,6 +23,14 @@ const ProgressIcon = props =>
     typeof props.icon === "string" ?
         <img style={{marginRight:"5px"}} src={props.icon} alt="img" width="24" height="24" /> :
         <props.icon/>;
+
+const sectionText =  {
+    fontSize: "16pt",
+    fontWeight: "500",
+    color: primaryColor,
+    display: "inline-block",
+    verticalAlign: "middle"
+};
 
 class Dashboard extends React.Component {
 
@@ -41,69 +50,85 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <Subtitle text="Estadísticas" icon={Icon}/>
-                <hr/>
+                {/*<hr/>*/}
 
-                <div style={{margin:"25px"}}>
-
-                </div>
-                <PerformMeter value={50}/>
-
-                <div style={{margin:"25px"}}>
-
-                </div>
-                <form className={classes.root} autoComplete="on">
-                    <OutlinedSelect label={"Rendimiento"} values={performValues}/>
-                    <OutlinedSelect label={"Intervalo"} values={intevalValues}/>
-                </form>
-
-                <div style={{margin:"25px"}}>
-
-                </div>
-                <ManSitting/>
-
-                <div style={{margin:"25px"}}>
-
-                </div>
-
-
-                <Grid container className={classes.root} spacing={16}>
-                    <Grid style={{backgroundColor: "#F12"}} item xs={12}>
-                        <Grid container className={classes.demo} spacing={Number(spacing)}>
-                            {["Tiempo", "Pausas activas", "Postura"].map(value => (
-                                <Grid key={value} item>
-                                    <Paper className={classes.paper}>
-                                        <Progress label={"Tiempo"}/>
-                                        <div style={{textAlign: 'center', marginTop: '10px'}}>
-                                            {/*<ProgressIcon icon={require('../../assets/icon-check.png')}/>*/}
-                                            {value}
-                                        </div>
-                                    </Paper>
-                                </Grid>
-                            ))}
-                        </Grid>
+                <Grid container style={{
+                    marginTop: "40px",
+                    // backgroundColor: "#ef39ff",
+                    padding: "20px 0"
+                }} spacing={Number(spacing)}>
+                    <Grid item>
+                        <OutlinedSelect label={"Rendimiento"} values={performValues}/>
                     </Grid>
-                    <Grid style={{backgroundColor: "#F12"}} item xs={12}>
-                        <Paper className={classes.control}>
-                            <Grid container>
-                                <Grid item>
-                                    <FormLabel>spacing</FormLabel>
-                                    <RadioGroup
-                                        name="spacing"
-                                        aria-label="Spacing"
-                                        value={spacing}
-                                        onChange={this.handleChange('spacing')}
-                                        row
-                                    >
-                                        <FormControlLabel value="0" control={<Radio />} label="0" />
-                                        <FormControlLabel value="8" control={<Radio />} label="8" />
-                                        <FormControlLabel value="16" control={<Radio />} label="16" />
-                                        <FormControlLabel value="24" control={<Radio />} label="24" />
-                                        <FormControlLabel value="32" control={<Radio />} label="32" />
-                                        <FormControlLabel value="40" control={<Radio />} label="40" />
-                                    </RadioGroup>
+                    <Grid item>
+                        <OutlinedSelect label={"Intervalo"} values={intevalValues}/>
+                    </Grid>
+                </Grid>
+
+                <Grid container style={{
+                    marginTop: "10px",
+                    minHeight:"500px",
+                    // backgroundColor: "#3dff57",
+                    padding: "10px"
+                }} spacing={Number(spacing)}>
+
+                    <Grid item style={{
+                        minHeight:"200px",
+                        // backgroundColor: "#ffea93"
+                    }} xs={6}>
+                        <div style={sectionText}>{"Tú"}</div>
+                        <div style={{margin: "20px"}}/>
+                        <div style={{
+                            // backgroundColor: "#ff6ba1",
+                            paddingLeft: "2vw"
+                        }}>
+                            <ManSitting/>
+                        </div>
+                    </Grid>
+
+                    <Grid container style={{
+                        minHeight:"200px",
+                        // backgroundColor: "#ff9121"
+                    }} xs={6}>
+                        <Grid item style={{
+                            minHeight:"200px",
+                            // backgroundColor: "#1b34ff"
+                        }} xs={12}>
+
+                            <div style={sectionText}>{"Rendimiento"}</div>
+                            <div style={{
+                                height: "100%",
+                                // backgroundColor: "#505",
+                                padding: "25px 0px"
+                            }}>
+                                <PerformMeter style={{
+                                    verticalAlign: "center"
+                                }} value={90}/>
+                            </div>
+
+                        </Grid>
+
+                        <Grid container style={{
+                            minHeight:"200px",
+                            // backgroundColor: "#ff0044"
+                        }} xs={12}>
+
+                            <div style={sectionText}>{"Progreso"}</div>
+                            <div style={{margin: "20px"}}/>
+
+                            <Grid style={{
+                                // backgroundColor: "#F12"
+                            }} item xs={12}>
+
+                                <Grid container justify="center" spacing={Number(24)}>
+                                    {["Tiempo", "Pausas activas", "Postura"].map(value => (
+                                        <Grid key={value} item>
+                                            <Progress label={value}/>
+                                        </Grid>
+                                    ))}
                                 </Grid>
                             </Grid>
-                        </Paper>
+                        </Grid>
                     </Grid>
                 </Grid>
 
