@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Progress } from 'react-sweet-progress';
+import { primaryColor } from "../dashboard/commons-styles";
 
 function getBoundedIncrement(value){
     const n = Math.floor(Math.random() * 100);
@@ -20,10 +21,14 @@ const ProgressIconStyle = {
     marginRight: "10px"
 };
 
+const ProgressTheme =  {
+    color: primaryColor,
+    trailColor: '#ededed'
+};
+
 const ProgressIcon = props =>
     typeof props.icon === "string" ?
-        <img style={ProgressIconStyle}
-             src={props.icon} alt="img" width="20" height="20" /> :
+        <img style={ProgressIconStyle} src={props.icon} alt="img"/> :
         <props.icon/>;
 
 const ProgressLabel = props =>
@@ -35,8 +40,10 @@ const ProgressLabel = props =>
 const ProgressChart = props =>
     <Progress type="circle"
               width={140}
+              strokeWidth={12}
+              status="default"
               percent={props.percent}
-              strokeWidth={12}/>;
+              theme={{default: ProgressTheme}}/>;
 
 const ProgressWrapper = props =>
     <div>

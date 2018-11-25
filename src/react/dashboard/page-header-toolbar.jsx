@@ -40,7 +40,7 @@ const ProfileButton = props =>
 
 const ProfileInfo = props =>
     <div className={props.profileStyle}>
-        <div style={{marginBottom:"-5px"}}>Usuario XY</div>
+        <div style={{marginBottom:"-5px"}}>{props.profile.displayName}</div>
         <div><img className={props.medalIcon} src={MedalIcon} alt="img"/> Bronce </div>
     </div>;
 
@@ -93,7 +93,10 @@ const NotificationPopup = props =>
 
 class HeaderLinks extends React.Component {
 
-    state = { open: false };
+    state = {
+        open: false,
+        profile: require('../../json/norealuser')
+    };
 
     handleAnchor = node => {
         this.anchorEl = node;
@@ -131,7 +134,7 @@ class HeaderLinks extends React.Component {
                     {/*handleToggle={this.handleToggle}*/}
                     {/*{...this.props} {...classes}/>*/}
 
-                <ProfileInfo {...this.props} {...classes}/>
+                <ProfileInfo profile={this.state.profile} {...this.props} {...classes}/>
 
                 <ProfileButton {...this.props} {...classes}/>
 

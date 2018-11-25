@@ -8,11 +8,6 @@ import PerformMeter from '../components/comp-performance-face'
 import OutlinedSelect from "../components/comp-outlined-select";
 import Progress from "../components/comp-progress-metric";
 import Grid from "@material-ui/core/Grid/Grid";
-import Paper from "@material-ui/core/Paper/Paper";
-import FormLabel from "@material-ui/core/FormLabel/FormLabel";
-import RadioGroup from "@material-ui/core/RadioGroup/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
-import Radio from "@material-ui/core/Radio/Radio";
 import {primaryColor} from "../dashboard/commons-styles";
 
 const performValues = ["Personal", "Grupal"];
