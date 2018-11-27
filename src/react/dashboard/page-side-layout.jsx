@@ -100,10 +100,10 @@ const TempNavDrawerWrapper = props =>
         <TempNavDrawer {...props}/>
     </Hidden>;
 
-const SideLayout = props =>
+const SideLayout = ({ classes, ...props }) =>
     <div>
-        <TempNavDrawerWrapper {...props} {...props.classes}/>
-        <FixedNavDrawerWrapper {...props} {...props.classes}/>
+        <TempNavDrawerWrapper {...props} {...classes}/>
+        <FixedNavDrawerWrapper {...props} {...classes}/>
     </div>;
 
 export default withStyles(sideLayoutStyle)(SideLayout);

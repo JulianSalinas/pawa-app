@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./view-metrics-styles";
+
+import styles from "./view-achievements-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import Subtitle from '../components/comp-subtitle'
@@ -7,6 +8,9 @@ import Grid from "@material-ui/core/Grid/Grid";
 import OutlinedSelect from "../components/comp-outlined-select";
 import LeaderBoard from "../components/comp-leaderboard-table";
 import {primaryColor} from "../dashboard/commons-styles";
+import Paper from "@material-ui/core/Paper/Paper";
+import Trophy from "../components/comp-trophy";
+import Typography from "@material-ui/core/Typography/Typography";
 
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
@@ -20,6 +24,25 @@ const sectionText =  {
     verticalAlign: "middle"
 };
 
+const stanceTrophies = [
+    '10 minutos', '30 minutos', '1 hora', '2 horas',
+    '4 horas', '5 horas', '6 horas', '8 horas'
+];
+
+const pauseTrophies = [
+    '1 pausa', '2 pausas', '3 pausas', '4 pausas'
+];
+
+const TrophiesMapping = props => props.trophies.map((trophyName, key) =>
+    <Grid item>
+        <Trophy key={key} name={trophyName} owned={true}/>
+    </Grid>
+);
+
+const TrophiesContainer = props =>
+    <Grid container className={props.classes.trophies} justify="flex-start" spacing={32}>
+        <TrophiesMapping {...props}/>
+    </Grid>;
 
 class Dashboard extends React.Component {
 
@@ -54,6 +77,19 @@ class Dashboard extends React.Component {
                 <div style={{margin: "50px 0px"}}/>
 
                 <LeaderBoard/>
+
+                <div style={{margin: "50px 0px"}}/>
+                <div style={sectionText}>{"Mi colección"}</div>
+                <div style={{margin: "50px 0px"}}/>
+
+
+                <Typography variant="h6" color="primary">Postura</Typography>
+                <div style={{margin: "50px 0px"}}/>
+                <TrophiesContainer trophies={stanceTrophies} {...this.props}/>
+                <div style={{margin: "50px 0px"}}/>
+                <Typography variant="h6" color="primary">Pausas activas</Typography>
+                <div style={{margin: "50px 0px"}}/>
+                <TrophiesContainer trophies={pauseTrophies} {...this.props}/>
 
             </div>
         );
