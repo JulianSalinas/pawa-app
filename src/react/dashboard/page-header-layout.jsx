@@ -5,9 +5,9 @@ import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-
 import HeaderToolbar from "./page-header-toolbar";
-import headerStyles from "./page-header-styles";
+
+import styles from "./page-header-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const HeaderToolbarWrapper = () =>
@@ -29,17 +29,17 @@ const HamburgerMenuWrapper = props =>
     </Hidden>;
 
 const HeaderToolbarContainerWrapper = props =>
-    <Toolbar className={props.toolbar}>
+    <Toolbar className={props.classes.toolbar}>
         <HeaderToolbarWrapper {...props}/>
         <HamburgerMenuWrapper {...props}/>
     </Toolbar>;
 
 const HeaderAppBarWrapper = props =>
-    <AppBar className={props.appbar}>
+    <AppBar className={props.classes.appbar}>
         <HeaderToolbarContainerWrapper {...props}/>
     </AppBar>;
 
-const HeaderLayout = ({ classes, ...props }) =>
-    <HeaderAppBarWrapper {...props} {...classes}/>;
+const HeaderLayout = props =>
+    <HeaderAppBarWrapper {...props} />;
 
-export default withStyles(headerStyles)(HeaderLayout);
+export default withStyles(styles)(HeaderLayout);

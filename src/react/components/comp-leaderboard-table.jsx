@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { primaryColor } from "../dashboard/commons-styles";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 
@@ -126,7 +125,7 @@ const LeaderBoardHost = props =>
         <Grid container style={{
             // minHeight: "150px",
             padding: "15px",
-            backgroundColor: primaryColor
+            backgroundColor: "#66b5bc"
         }} xs={8}>
 
             <Grid item style={{

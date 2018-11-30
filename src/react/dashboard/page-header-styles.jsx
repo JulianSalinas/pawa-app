@@ -1,19 +1,14 @@
 const pageHeaderStyles = theme => ({
     appbar: {
-        color: "#999",
         width: "100%",
-        display: "block",
-        minHeight: "66px",
-        boxShadow: "none",
         position: "absolute",
-        backgroundColor: "#ebebeb",
-        transition: "all 150ms ease 0s"
+        transition: "all 150ms ease 0s",
     },
     toolbar: {
         display:"flex",
         flexWrap: "wrap",
         flexDirection: "row",
-        // backgroundColor: "#F12",
+        backgroundColor: "#FFF",
         justifyContent: "flex-end"
     },
     profileStyle: {
@@ -50,7 +45,7 @@ const pageHeaderStyles = theme => ({
         textAlign: "center",
         borderRadius: "10px",
         position: "absolute",
-        background: "#66b5bc",
+        // background: "#66b5bc",
         verticalAlign: "middle",
         border: "1px solid #FFF",
     },

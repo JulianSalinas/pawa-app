@@ -7,7 +7,7 @@ import Subtitle from '../components/comp-subtitle'
 import Grid from "@material-ui/core/Grid/Grid";
 import OutlinedSelect from "../components/comp-outlined-select";
 import LeaderBoard from "../components/comp-leaderboard-table";
-import {primaryColor} from "../dashboard/commons-styles";
+
 import Paper from "@material-ui/core/Paper/Paper";
 import Trophy from "../components/comp-trophy";
 import Typography from "@material-ui/core/Typography/Typography";
@@ -20,7 +20,7 @@ const Icon = require('../../assets/icon-achivement-accent.png');
 const sectionText =  {
     fontSize: "20pt",
     fontWeight: "300",
-    color: primaryColor,
+    color: "#66b5bc",
     verticalAlign: "middle"
 };
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {primaryColor} from "../dashboard/commons-styles";
 
 const imgStyle = {
     width: "100%",

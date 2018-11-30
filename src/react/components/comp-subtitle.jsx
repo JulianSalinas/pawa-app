@@ -1,11 +1,10 @@
 import React from 'react';
-import { primaryColor } from "../dashboard/commons-styles";
 
 const icon = {
     width: "45px",
     height: "45px",
     marginRight: "25px",
-    color: primaryColor,
+    color: "#66b5bc",
     display: "inline-block",
     verticalAlign: "middle"
 };
@@ -13,7 +12,7 @@ const icon = {
 const subtitle =  {
     fontSize: "28pt",
     fontWeight: "300",
-    color: primaryColor,
+    color: "#66b5bc",
     display: "inline-block",
     verticalAlign: "middle"
 };

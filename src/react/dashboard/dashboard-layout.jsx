@@ -1,74 +1,69 @@
 import React, { Component } from "react";
 
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
-
-import dashboardTheme from "./dashboard-theme"
-import dashboardStyles from "./dashboard-styles";
-import withStyles from "@material-ui/core/styles/withStyles";
-import MuiThemeProvider from "@material-ui/core/es/styles/MuiThemeProvider";
-
 import Sidebar from "./page-side-layout";
 import Header from "./page-header-layout";
 import Footer from "./page-footer-layout";
+import PerfectScrollbar from "perfect-scrollbar";
 
 import routes from './dashboard-routes'
-import logo from "../../assets/img-logo-1.png";
-import image from "../../assets/img-material-1.png";
 import { Redirect, Route, Switch } from "react-router-dom";
 
+import theme from "./dashboard-theme"
+import styles from "./dashboard-styles";
+import withStyles from "@material-ui/core/styles/withStyles";
+import MuiThemeProvider from "@material-ui/core/es/styles/MuiThemeProvider";
+
+const DashboardSwitch = () => routes.map((prop, key) => prop.redirect ?
+    <Redirect from={prop.path} to={prop.to} key={key}/> :
+    <Route path={prop.path} component={prop.component} key={key}/>
+);
+
 const DashboardRoutes = () =>
-    <Switch> {routes.map((prop, key) => prop.redirect ?
-        <Redirect from={prop.path} to={prop.to} key={key}/> :
-        <Route path={prop.path} component={prop.component} key={key}/>)}
+    <Switch>
+        <DashboardSwitch/>
     </Switch>;
 
 const DashboardSidebar = props =>
-    <Sidebar
-        routes={routes}
-        logo={props.logo}
-        image={props.sideImage}
-        company={props.company}
-        open={props.mobileOpen}
-        color={props.accentColor}
-        handleToggle={props.handleToggle}
-        {...props} />;
+    <Sidebar routes={routes} {...props} />;
 
 const DashboardHeader = props =>
-    <Header
-        routes={routes}
-        handleToggle={props.handleToggle} {...props} />;
+    <div>
+        <Header routes={routes} {...props} />
+    </div>;
 
 const DashboardFooter = props =>
-    <Footer
-        year={props.year}
-        company={props.company}/>;
+    <Footer {...props}/>;
 
-const DashboardContent = props =>
-    <div className={props.content}>
+const DashboardBody = props =>
+    <div className={props.classes.body}>
         <DashboardRoutes/>
     </div>;
+
+const DashboardLayout = props =>
+    <div className={props.classes.layout} >
+        <DashboardSidebar {...props} />
+        {props.children}
+    </div>;
+
+const DashboardWrapper = props =>
+    <MuiThemeProvider theme={theme}>
+        <DashboardLayout {...props}/>
+    </MuiThemeProvider>;
 
 class Dashboard extends Component {
 
     state = {
-        year: 2018,
-        logo: logo,
-        company: "Pawa",
-        sideImage: image,
-        mobileOpen: false,
-        activeRoute: "/dashboard",
-        accentColor: "blue",
+        open: false,
         currentUser: require('../../json/norealuser'),
     };
 
     handleToggle = () => {
-        this.setState({ mobileOpen: !this.state.mobileOpen });
+        this.setState({ open: !this.state.open });
     };
 
     resizeFunction = () => {
         if (window.innerWidth >= 960)
-            this.setState({ mobileOpen: false });
+            this.setState({ open: false });
     };
 
     componentDidMount() {
@@ -81,22 +76,24 @@ class Dashboard extends Component {
         window.removeEventListener("resize", this.resizeFunction);
     }
 
-    render() {
-        const { classes, ...rest } = this.props;
+    bindPanel() {
         return (
-            <MuiThemeProvider theme={dashboardTheme}>
-                <div className={classes.wrapper} >
-                    <DashboardSidebar {...this.state} {...rest} handleToggle={this.handleToggle}/>
-                    <div className={classes.panel} ref="panel">
-                        <DashboardHeader handleToggle={this.handleToggle} {...rest} />
-                        <DashboardContent container={classes.container} content={classes.content}/>
-                        <DashboardFooter year={this.state.year} company={this.state.company}/>
-                    </div>
-                </div>
-            </MuiThemeProvider>
+            <div className={this.props.classes.panel} ref="panel">
+                {/*<DashboardHeader {...this.props} handleToggle={this.handleToggle} />*/}
+                <DashboardBody {...this.props}/>
+                <DashboardFooter {...this.props}/>
+            </div>
+        );
+    }
+
+    render() {
+        return (
+            <DashboardWrapper {...this.props} {...this.state} handleToggle={this.handleToggle}>
+                {this.bindPanel()}
+            </DashboardWrapper>
         );
     }
 }
 
-export default withStyles(dashboardStyles)(Dashboard);
+export default withStyles(styles)(Dashboard);
 

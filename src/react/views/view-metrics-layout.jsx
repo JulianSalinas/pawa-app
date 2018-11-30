@@ -8,7 +8,6 @@ import PerformMeter from '../components/comp-performance-face'
 import OutlinedSelect from "../components/comp-outlined-select";
 import Progress from "../components/comp-progress-metric";
 import Grid from "@material-ui/core/Grid/Grid";
-import {primaryColor} from "../dashboard/commons-styles";
 
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
@@ -22,7 +21,7 @@ const ProgressIcon = props =>
 const sectionText =  {
     fontSize: "16pt",
     fontWeight: "500",
-    color: primaryColor,
+    color: "#66b5bc",
     display: "inline-block",
     verticalAlign: "middle"
 };

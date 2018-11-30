@@ -1,31 +1,29 @@
-import { container, transition, drawerWidth } from "./commons-styles";
-
 export default theme => ({
 
-    wrapper: {
-        top: "0",
+    // It is all the screen
+    layout: {
         height: "100vh",
-        position: "relative"
+        backgroundColor: "#f8f8f8"
     },
 
+    // Where the header, content and footer are.
     panel: {
-        transition,
-        width: "100%",
+        width: "auto",
+        height: "100vh",
         float: "right",
         overflow: "auto",
-        maxHeight: "100%",
         position: "relative",
         overflowScrolling: "touch",
         [theme.breakpoints.up("md")]: {
-            width: `calc(100% - ${drawerWidth}px)`
+            width: `calc(100% - ${260}px)`
         }
     },
 
-    content: {
-        // Margin = Header
-        marginTop: "66px",
-        padding: "60px 80px",
-        minHeight: "calc(100vh - 125px)"
+    // Where each route is change
+    body: {
+        // height: "auto",
+        margin: theme.spacing.unit * 10,
+        backgroundColor: "#ffe7d6"
     }
 
 });

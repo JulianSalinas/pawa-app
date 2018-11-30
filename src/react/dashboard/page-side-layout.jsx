@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import withStyles from "@material-ui/core/styles/withStyles";
 
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
@@ -10,36 +9,39 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import sideLayoutStyle from "./page-side-styles";
+import styles from "./page-side-styles";
+import withStyles from "@material-ui/core/styles/withStyles";
 import ButtonTwoStates from "../components/button-two-states";
+
+const Logo = require('../../assets/img-pawa-4.svg');
 
 const NavLogo = () =>
     <a className="logo-wrapper waves-effect">
-        <img alt="Logo" className="img-fluid" src={require('../../assets/img-pawa-3.png')}/>
+        <img src={Logo} height={150} width={150}/>
     </a>;
 
 const LogoWrapper = props =>
-    <div className={props.wrappedLogo}>
+    <div className={props.classes.logo}>
         <NavLogo/>
     </div>;
 
 const DeviceButton = props =>
-    <ListItem className={props.itemButton}>
+    <ListItem className={props.classes.itemButton}>
         <ButtonTwoStates/>
     </ListItem>;
 
 const SideMenuIcon = props =>
     typeof props.icon === "string" ?
-        <img src={props.icon} alt="img" width="24" height="24" /> :
+        <img src={props.icon} alt="img" width={24} height={24} /> :
         <props.icon/>;
 
 const SideMenuIconItem = props =>
-    <ListItemIcon className={props.itemIcon}>
+    <ListItemIcon className={props.classes.itemIcon}>
         <SideMenuIcon icon={props.icon}/>
     </ListItemIcon>;
 
 const SideMenuLink = props =>
-    <ListItem className={props.itemLink}>
+    <ListItem className={props.classes.itemLink}>
         <SideMenuIconItem {...props}/>
         <ListItemText disableTypography={true} primary={props.name}/>
     </ListItem>;
@@ -47,8 +49,8 @@ const SideMenuLink = props =>
 const SideMenuItem = props =>
     <NavLink key={props.key}
              to={props.path}
-             className={props.item}
-             activeClassName={props.itemActive}>
+             className={props.classes.item}
+             activeClassName={props.classes.itemActive}>
         <SideMenuLink {...props}/>
     </NavLink>;
 
@@ -68,14 +70,13 @@ const SideMenuRoutes = props =>
     </List>;
 
 const SideMenuWrapper = props =>
-    <div className={props.sidebar}>
+    <div className={props.classes.sidebar}>
         <LogoWrapper {...props}/>
         <SideMenuRoutes {...props}/>
     </div>;
 
 const FixedNavDrawer = props =>
-    // Add one level of curly braces like classes={{paper:props.paper}}
-    <Drawer anchor="left" variant="permanent" open classes={{paper:props.fixedDrawer}}>
+    <Drawer anchor="left" variant="permanent" open classes={{paper:props.classes.fixedDrawer}}>
         <SideMenuWrapper {...props}/>
     </Drawer>;
 
@@ -84,7 +85,7 @@ const TempNavDrawer = props =>
         anchor="right"
         variant="temporary"
         open={props.open}
-        classes={{paper: props.tempDrawer}}
+        classes={{paper: props.classes.tempDrawer}}
         onClose={props.handleToggle}
         ModalProps={{ keepMounted: true }}>
         <SideMenuWrapper {...props}/>
@@ -100,10 +101,10 @@ const TempNavDrawerWrapper = props =>
         <TempNavDrawer {...props}/>
     </Hidden>;
 
-const SideLayout = ({ classes, ...props }) =>
+const SideLayout = props =>
     <div>
-        <TempNavDrawerWrapper {...props} {...classes}/>
-        <FixedNavDrawerWrapper {...props} {...classes}/>
+        <TempNavDrawerWrapper {...props}/>
+        <FixedNavDrawerWrapper {...props}/>
     </div>;
 
-export default withStyles(sideLayoutStyle)(SideLayout);
+export default withStyles(styles)(SideLayout);

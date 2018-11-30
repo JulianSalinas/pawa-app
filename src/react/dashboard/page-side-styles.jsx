@@ -1,24 +1,24 @@
-import {primaryColor, defaultBoxShadow, drawerWidth, transition} from "./commons-styles";
+const drawerWidth = 260;
 
 const sidebarStyle = theme => ({
     sidebar: {
         zIndex: "4",
-        width: "260px",
         height: "100vh",
         overflow: "auto",
         position: "relative",
         overflowScrolling: "touch",
-        // backgroundColor: theme.palette.primary.main
-        border: "1px solid #999999",
+        boxShadow: "0 0 30px 0 rgba(0,0,0,.1)"
     },
     fixedDrawer: {
         top: "0",
         left: "0",
         bottom: "0",
+        border: "none",
         position: "fixed",
-        overflowY: "visible",
         textAlign: "left",
-        width: drawerWidth
+        overflowY: "visible",
+        width: drawerWidth,
+        backgroundColor: "#FFF"
     },
     tempDrawer: {
         top: "0",
@@ -32,47 +32,35 @@ const sidebarStyle = theme => ({
         overflowY: "visible",
         textAlign: "left",
         transform: `translate3d(${drawerWidth}px, 500, 500)`,
-        ...transition
+        transition: "all 0.33s cubic-bezier(.33,.89,.38,.71)"
     },
-    wrappedLogo: {
+    logo: {
         zIndex: "4",
         width: "100%",
         textAlign: "center",
         position: "relative",
         paddingTop: "3.5rem",
-        paddingBottom: "3.0rem",
-        backgroundColor: theme.palette.primary.main
+        paddingBottom: "1.0rem",
     },
     item: {
+        fontSize: 18,
         color: "#999",
         display: "block",
-        fontSize: "20px", // 16
-        fontWeight: "300", // 400
-        textDecoration: "none",
-        position: "relative",
-        marginTop: "10px",
+        marginTop: "15px",
         marginRight: "23px",
-        marginLeft: "-1px",
-        border: "1px solid #999999", // #dedede
-        // borderTopRightRadius: "5px",
-        // borderBottomRightRadius: "5px",
-        "&:hover": { color: "#999" }
+        position: "relative",
+        borderBottom: "1px dotted #dedede",
+        "&:hover": {
+            color: "#999",
+            backgroundColor: "#dedede",
+            borderTopRightRadius: "5px",
+            borderBottomRightRadius: "5px"
+        }
     },
     itemLink: {
         width: "auto",
         display: "block",
         position: "relative"
-    },
-    itemActive: {
-        color: "#FFF",
-        // color: "#999",
-        // paddingLeft: "8px",
-        // marginRight: "15px",
-        backgroundColor: "#999999",
-        // backgroundColor: "#FFF",
-        // borderTopRightRadius: "5px",
-        // borderBottomRightRadius: "5px",
-        "&:hover": { color: "#FFF" }
     },
     itemIcon: {
         float: "left",
@@ -88,6 +76,15 @@ const sidebarStyle = theme => ({
         position: "absolute",
         marginTop: "8px",
         marginBottom: "8px"
+    },
+    itemActive: {
+        color: "#FFF",
+        paddingLeft: "8px",
+        marginRight: "15px",
+        borderTopRightRadius: "5px",
+        borderBottomRightRadius: "5px",
+        backgroundColor: theme.palette.primary.main,
+        "&:hover": {color: "#FFF", backgroundColor: theme.palette.primary.main}
     }
 });
 

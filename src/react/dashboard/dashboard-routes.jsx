@@ -11,7 +11,7 @@ import AchievementsPage from "../views/view-achievements-layout.jsx";
 import SettingsIcon from "@material-ui/icons/Settings"
 import DemoIcon from "@material-ui/icons/OndemandVideo"
 
-const routes = [
+export default [
     {
         path: "/metrics",
         name: "Estadísticas",
@@ -60,5 +60,3 @@ const routes = [
         to: "/metrics",
     }
 ];
-
-export default routes;

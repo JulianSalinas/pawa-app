@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Progress } from 'react-sweet-progress';
-import { primaryColor } from "../dashboard/commons-styles";
 
 function getBoundedIncrement(value){
     const n = Math.floor(Math.random() * 100);
@@ -22,7 +21,7 @@ const ProgressIconStyle = {
 };
 
 const ProgressTheme =  {
-    color: primaryColor,
+    color: "#66b5bc",
     trailColor: '#ededed'
 };
 

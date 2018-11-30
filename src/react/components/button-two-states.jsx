@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
+
 import Button from '@material-ui/core/Button';
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const offTheme = {
-    color: "#FFF",
-    backgroundColor: "#999"
-};
 
-const onTheme = {
-    color: "#FFF",
-    backgroundColor: "#66b5bc"
-};
-
-const buttonTheme = theme => ({
-    color: theme.color,
-    backgroundColor: theme.backgroundColor,
-    textAlign:"center", width:"100%"
+const styles = theme => ({
+    theme: {
+        width:"100%",
+        color:"#FFF",
+        textAlign:"center",
+        "&:hover": {
+            backgroundColor: theme.palette.primary.light,
+        }
+    },
+    offTheme: {
+        backgroundColor:"#999",
+    },
+    onTheme: {
+        backgroundColor: theme.palette.primary.main,
+    }
 });
 
 class TurnedButton extends Component {
@@ -22,11 +26,12 @@ class TurnedButton extends Component {
     state = {
         active: false,
         text: 'apagado',
-        theme: offTheme
+        theme: this.props.classes.offTheme,
     };
 
     changeTheme = evt => {
         evt.preventDefault();
+        const { offTheme, onTheme } = this.props.classes;
         this.setState({
             active: !this.state.active,
             theme: this.state.active ? offTheme : onTheme,
@@ -37,10 +42,10 @@ class TurnedButton extends Component {
     render() {
         return <Button
             variant="contained"
-            style={buttonTheme(this.state.theme)}
+            className={`${this.props.classes.theme} ${this.state.theme}`}
             onClick={e => { this.changeTheme(e) }}>{this.state.text}</Button>;
     }
   
 }
 
-export default TurnedButton;
+export default withStyles(styles)(TurnedButton);
