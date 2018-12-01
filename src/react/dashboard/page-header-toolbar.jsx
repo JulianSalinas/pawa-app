@@ -95,7 +95,7 @@ class HeaderLinks extends React.Component {
 
     state = {
         open: false,
-        profile: require('../../json/norealuser')
+        profile: require('../../json/norealuser-1')
     };
 
     handleAnchor = node => {

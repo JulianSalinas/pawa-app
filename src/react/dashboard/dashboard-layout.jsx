@@ -54,7 +54,7 @@ class Dashboard extends Component {
 
     state = {
         open: false,
-        currentUser: require('../../json/norealuser'),
+        currentUser: require('../../json/norealuser-1'),
     };
 
     handleToggle = () => {

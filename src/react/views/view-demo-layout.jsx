@@ -120,7 +120,7 @@ export default class Scratchpad extends Component {
         isConnected: false,
         position:{ x: 15, y: 16 },
         animatedPosition: { x: 15, y: 16 },
-        user: require('../../json/norealuser')
+        user: require('../../json/norealuser-1')
     };
 
     deviceEventCallback = (deviceType, deviceId, eventType, format, payload) => {
