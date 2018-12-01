@@ -21,7 +21,7 @@ const pageHeaderStyles = theme => ({
         textDecoration: "none",
         // backgroundColor: "#141dff"
     },
-    medalIcon:{
+    medal:{
         width: "15px",
         height: "15px",
         marginRight: "5px"

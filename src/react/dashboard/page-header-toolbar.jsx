@@ -41,7 +41,7 @@ const ProfileButton = props =>
 const ProfileInfo = props =>
     <div className={props.profileStyle}>
         <div style={{marginBottom:"-5px"}}>{props.profile.displayName}</div>
-        <div><img className={props.medalIcon} src={MedalIcon} alt="img"/> Bronce </div>
+        <div><img className={props.medal} src={MedalIcon} alt="img"/> Bronce </div>
     </div>;
 
 const CloseNotificationPopup = props =>

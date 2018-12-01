@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 
 import styles from "./comp-trophy-styles";
 import withStyles from "@material-ui/core/es/styles/withStyles";
+import Avatar from "@material-ui/core/Avatar/Avatar";
 
 function getTrophyImage(owned){
     return owned ?
@@ -10,10 +11,8 @@ function getTrophyImage(owned){
         require('../../assets/icon-trophy.png');
 }
 
-const TrophyImage = ({ classes, ...props }) =>
-    typeof props.icon === "string" ?
-        <img className={classes.icon} src={props.icon} alt="img" />:
-        <props.icon className={classes.icon}/>;
+const TrophyImage = props =>
+    <Avatar src={props.icon} className={props.classes.bigAvatar}/>;
 
 const TrophyText = props =>
     <div className={props.classes.text}>

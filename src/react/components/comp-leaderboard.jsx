@@ -47,7 +47,7 @@ const LeaderBoardItemLeft = props =>
 const LeaderBoardItemRight = props =>
     <Grid item xs={4}>
         <div className={props.classes.points}>
-            <img src={MedalIcon} className={props.classes.medalIcon}/>
+            <img src={MedalIcon} className={props.classes.medal}/>
             <Typography variant={"h5"} color={"inherit"}>
                 {`${props.points} pts`}
             </Typography>

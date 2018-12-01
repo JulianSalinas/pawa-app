@@ -7,6 +7,7 @@ import Subtitle from '../components/comp-subtitle'
 import Grid from "@material-ui/core/Grid/Grid";
 import OutlinedSelect from "../components/comp-outlined-select";
 import LeaderBoard from "../components/comp-leaderboard";
+import RecentTrophies from "../components/comp-recent-trophies";
 
 import Paper from "@material-ui/core/Paper/Paper";
 import Trophy from "../components/comp-trophy";
@@ -84,7 +85,7 @@ const AchievementsLayout = props =>
         <Grid item xs={12}>
             <Grid container spacing={24}>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={5}>
                     <Paper className={props.classes.paper} elevation={0}>
                         <Grid container spacing={24}>
                             <Grid item xs={12}>
@@ -100,7 +101,7 @@ const AchievementsLayout = props =>
                     </Paper>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={7}>
                     <Paper className={props.classes.paper} elevation={0}>
                         <Grid container spacing={24}>
                             <Grid item xs={12}>
@@ -110,7 +111,7 @@ const AchievementsLayout = props =>
                                 <Divider variant={"middle"} light={true}/>
                             </Grid>
                             <Grid item xs={12}>
-                                <PerformMeter value={90}/>
+                                <RecentTrophies/>
                             </Grid>
                         </Grid>
                     </Paper>
