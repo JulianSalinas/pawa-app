@@ -24,13 +24,5 @@ export default theme => ({
     paperPositionText: {
         color: "#FFF",
         width: "100%"
-    },
-    sectionText: {
-        fontSize: "16pt",
-        fontWeight: "500",
-        color: theme.palette.primary.main,
-        display: "inline-block",
-        verticalAlign: "middle"
     }
-
 });

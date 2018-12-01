@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from "@material-ui/core/Typography/Typography";
 
 const imgStyle = {
     width: "100%",
@@ -33,6 +34,9 @@ function getRandom(){
 
 const PerformMeterImage = props =>
     <div>
+        <Typography variant={"h5"} color={"textSecondary"} gutterBottom>
+            {`${props.value}+ ${getMessage(props.value)}`}
+        </Typography>
         <img style={imgStyle} src={getImage(props.value)}/>
     </div>;
 

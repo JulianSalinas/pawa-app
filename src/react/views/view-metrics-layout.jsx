@@ -83,9 +83,6 @@ const MetricsPerformanceGrid = props =>
                     <Divider variant={"middle"} light={true}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant={"h5"} color={"textSecondary"}>
-                        ¡Excelente!
-                    </Typography>
                     <PerformMeter value={90}/>
                 </Grid>
             </Grid>
@@ -120,7 +117,7 @@ const MetricsLayout = props =>
         <MetricsTitle {...props}/>
         <MetricsSelectsGrid {...props}/>
         <Grid item xs={12}>
-            <Grid container spacing={24}>
+            <Grid container spacing={24} alignItems={"stretch"}>
                 <MetricsPositionGrid {...props}/>
                 <Grid item xs={12} md={8}>
                     <Grid container spacing={24}>
