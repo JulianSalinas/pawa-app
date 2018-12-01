@@ -11,6 +11,7 @@ import LeaderBoard from "../components/comp-leaderboard-table";
 import Paper from "@material-ui/core/Paper/Paper";
 import Trophy from "../components/comp-trophy";
 import Typography from "@material-ui/core/Typography/Typography";
+import FormLabel from "@material-ui/core/FormLabel/FormLabel";
 
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
@@ -58,17 +59,23 @@ class Dashboard extends React.Component {
         return (
             <div>
                 <Subtitle text="Logros" icon={Icon}/>
+                <hr/>
 
-                <Grid container style={{
-                    marginTop: "40px",
-                    // backgroundColor: "#ef39ff",
-                    padding: "20px 0"
-                }} spacing={Number(16)}>
-                    <Grid item>
-                        <OutlinedSelect label={"Rendimiento"} values={performValues}/>
-                    </Grid>
-                    <Grid item>
-                        <OutlinedSelect label={"Intervalo"} values={intevalValues}/>
+                <Grid container>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper} elevation={0}>
+                            <Grid container spacing={16}>
+                                <Grid item xs={12}>
+                                    <FormLabel>Parámetros</FormLabel>
+                                </Grid>
+                                <Grid item>
+                                    <OutlinedSelect label={"Rendimiento"} values={performValues}/>
+                                </Grid>
+                                <Grid item>
+                                    <OutlinedSelect label={"Intervalo"} values={intevalValues}/>
+                                </Grid>
+                            </Grid>
+                        </Paper>
                     </Grid>
                 </Grid>
 

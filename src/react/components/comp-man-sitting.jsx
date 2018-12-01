@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 
-const imgStyle = {
-    width: "326px",
-    height: "400px",
-    padding: "30px",
-    backgroundColor: "#dddddd"
-};
-
 function ceilOf(n){
     let value = Math.ceil(n / 10) * 10;
     if (value < 0 ) value = 0;
@@ -25,7 +18,7 @@ function getRandom(){
 
 const ManSittingImage = props =>
     <div>
-        <img style={imgStyle} src={getImage(props.value)}/>
+        <img src={getImage(props.value)}/>
     </div>;
 
 const getIncrement = (value, animatedValue) => {

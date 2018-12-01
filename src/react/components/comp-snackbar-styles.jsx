@@ -23,7 +23,7 @@ export default theme => ({
         flexWrap: "unset",
         borderRadius: "3px",
         position: "relative",
-        marginBottom: "60px",
+        marginBottom: theme.spacing.unit,
         backgroundColor: theme.palette.primary.dark,
         boxShadow: "0 12px 20px -10px rgba(255, 255, 255, 0.28)"
     }

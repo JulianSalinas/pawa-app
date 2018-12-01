@@ -34,25 +34,6 @@ function getRandom(){
 const PerformMeterImage = props =>
     <div>
         <img style={imgStyle} src={getImage(props.value)}/>
-        <div style={{
-            color: "#999",
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingRight: "4vw",
-            marginTop: "2vh",
-            fontSize: "20pt",
-            fontWeight: "500",
-            verticalAlign: "middle"
-        }}>
-            <div>
-                <div>
-                    {props.value + "%"}
-                </div>
-                <div>
-                    {getMessage(props.value)}
-                </div>
-            </div>
-        </div>
     </div>;
 
 const getIncrement = (value, animatedValue) => {

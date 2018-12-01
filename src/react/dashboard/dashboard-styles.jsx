@@ -23,7 +23,7 @@ export default theme => ({
     body: {
         // height: "auto",
         margin: theme.spacing.unit * 10,
-        backgroundColor: "#ffe7d6"
+        // backgroundColor: "#ffe7d6"
     }
 
 });

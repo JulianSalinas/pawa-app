@@ -1,31 +1,18 @@
 import React from 'react';
 
-const icon = {
-    width: "45px",
-    height: "45px",
-    marginRight: "25px",
-    color: "#66b5bc",
-    display: "inline-block",
-    verticalAlign: "middle"
-};
-
-const subtitle =  {
-    fontSize: "28pt",
-    fontWeight: "300",
-    color: "#66b5bc",
-    display: "inline-block",
-    verticalAlign: "middle"
-};
+import styles from './comp-subtitle-styles'
+import withStyles from "@material-ui/core/styles/withStyles";
+import Typography from "@material-ui/core/Typography/Typography";
 
 const Icon = props =>
     typeof props.icon === "string" ?
-        <img style={icon} src={props.icon} alt="img" />:
-        <props.icon style={icon}/>;
+        <img className={props.classes.icon} src={props.icon} alt="img" />:
+        <props.icon className={props.classes.icon}/>;
 
 const Subtitle = props =>
     <div>
         <Icon {...props} alt="img" />
-        <div style={subtitle}>{props.text}</div>
+        <Typography variant={"h4"} className={props.classes.subtitle}>{props.text}</Typography>
     </div>;
 
-export default Subtitle;
+export default withStyles(styles)(Subtitle);

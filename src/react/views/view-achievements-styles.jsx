@@ -1,6 +1,6 @@
 export default theme => ({
     paper: {
-        width: "100%"
+        padding: theme.spacing.unit * 2,
     },
     trophies: {
         padding: 16,

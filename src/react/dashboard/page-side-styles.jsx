@@ -43,7 +43,6 @@ const sidebarStyle = theme => ({
         paddingBottom: "1.0rem",
     },
     item: {
-        fontSize: 18,
         color: "#999",
         display: "block",
         marginTop: "15px",
@@ -67,23 +66,21 @@ const sidebarStyle = theme => ({
         width: "24px",
         height: "24px",
         color: "inherit",
-        fontSize: "24px",
-        lineHeight: "30px",
-        block:"inline-block"
+        block: "inline-block"
     },
     itemButton: {
         width: "100%",
         position: "absolute",
-        marginTop: "8px",
-        marginBottom: "8px"
+        marginTop: theme.spacing.unit,
+        marginBottom: theme.spacing.unit,
     },
     itemActive: {
         color: "#FFF",
-        paddingLeft: "8px",
-        marginRight: "15px",
         borderTopRightRadius: "5px",
         borderBottomRightRadius: "5px",
-        backgroundColor: theme.palette.primary.main,
+        paddingLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit * 2,
+        backgroundColor: theme.palette.primary.dark,
         "&:hover": {color: "#FFF", backgroundColor: theme.palette.primary.main}
     }
 });

@@ -1,15 +1,15 @@
+import ReactDOM from "react-dom";
 import React, { Component } from "react";
 
-import ReactDOM from "react-dom";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import withStyles from "@material-ui/core/styles/withStyles";
 
-const selectStyle = {
-    margin: "2px",
-    minWidth: "150px"
+const styles = {
+    form: { minWidth: "150px" }
 };
 
 class OutlinedSelect extends Component {
@@ -29,8 +29,8 @@ class OutlinedSelect extends Component {
     render() {
 
         return (
-            <FormControl variant="outlined" color="primary" style={selectStyle}>
-                <InputLabel ref={ref => { this.InputLabel= ref; }}>
+            <FormControl variant="outlined" color="primary" className={this.props.classes.form}>
+                <InputLabel ref={ref => { this.InputLabel = ref; }}>
                     {this.props.label}
                 </InputLabel>
                 <Select
@@ -49,4 +49,4 @@ class OutlinedSelect extends Component {
     }
 }
 
-export default OutlinedSelect;
+export default withStyles(styles)(OutlinedSelect);
