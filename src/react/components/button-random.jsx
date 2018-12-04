@@ -9,7 +9,7 @@ const themes = [
 
 class ThemedButton extends Component {
 
-    state = { theme: props.theme || 'btn-primary' };
+    state = { theme: 'btn-primary' };
 
     randomTheme = evt => {
         evt.preventDefault();

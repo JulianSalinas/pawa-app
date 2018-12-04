@@ -80,7 +80,7 @@ const sidebarStyle = theme => ({
         borderBottomRightRadius: "5px",
         paddingLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit * 2,
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: theme.palette.primary.main,
         "&:hover": {color: "#FFF", backgroundColor: theme.palette.primary.main}
     }
 });

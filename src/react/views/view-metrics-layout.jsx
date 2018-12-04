@@ -53,7 +53,7 @@ const MetricsPositionGrid = props =>
         <Paper className={props.classes.paperPosition} elevation={0}>
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <Typography variant={"subtitle1"} className={props.classes.paperPositionText} gutterBottom>
+                    <Typography variant={"subtitle1"} color={"inherit"} gutterBottom>
                         Tu posición actual
                     </Typography>
                     <Divider variant={"middle"} light={true}/>
@@ -64,7 +64,7 @@ const MetricsPositionGrid = props =>
                     </div>
                 </Grid>
                 <Grid item xs={12}>
-                    <Typography variant={"h4"} align={"center"} className={props.classes.paperPositionText}>
+                    <Typography variant={"h4"} color={"inherit"} align={"center"}>
                         87 Grados
                     </Typography>
                 </Grid>

@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@material-ui/core": "^3.4.0",
+        "@material-ui/core": "^3.6.1",
         "@material-ui/icons": "^3.0.1",
         "ajv": "^6.5.5",
         "aws-iot-device-sdk": "^2.2.1",
@@ -26,6 +26,7 @@
         "react": "^16.6.1",
         "react-bootstrap": "^0.30.10",
         "react-dom": "^16.6.1",
+        "react-native-thumbnail-video": "^0.1.1",
         "react-router-dom": "^4.3.1",
         "react-scripts": "^2.1.1",
         "react-sweet-progress": "^1.1.2",
@@ -55,5 +56,8 @@
     ],
     "plugins": [
         "@babel/plugin-proposal-class-properties"
-    ]
+    ],
+    "devDependencies": {
+        "@babel/plugin-proposal-class-properties": "^7.1.0"
+    }
 }

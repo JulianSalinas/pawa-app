@@ -8,16 +8,15 @@ const styles = theme => ({
     theme: {
         width:"100%",
         color:"#FFF",
-        textAlign:"center",
-        "&:hover": {
-            backgroundColor: theme.palette.primary.light,
-        }
+        textAlign:"center"
     },
     offTheme: {
-        backgroundColor:"#999",
+        backgroundColor: theme.palette.secondary.main,
+        "&:hover": {backgroundColor: theme.palette.secondary.dark}
     },
     onTheme: {
         backgroundColor: theme.palette.primary.main,
+        "&:hover": {backgroundColor: theme.palette.primary.dark,}
     }
 });
 

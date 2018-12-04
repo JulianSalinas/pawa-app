@@ -57,6 +57,6 @@ export default [
     {
         redirect: true,
         path: "/",
-        to: "/achievements",
+        to: "/exercises"
     }
 ];
