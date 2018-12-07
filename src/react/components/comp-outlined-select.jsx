@@ -29,7 +29,9 @@ class OutlinedSelect extends Component {
     render() {
 
         return (
-            <FormControl variant="outlined" color="primary" className={this.props.classes.form}>
+            <FormControl
+                fullWidth={this.props.fullWidth}
+                variant="outlined" color="primary" className={this.props.classes.form}>
                 <InputLabel ref={ref => { this.InputLabel = ref; }}>
                     {this.props.label}
                 </InputLabel>
