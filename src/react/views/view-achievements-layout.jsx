@@ -15,7 +15,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
-const Icon = require('../../assets/icon-achivement-accent.png');
+const Icon = require('../../assets/app-icons/icon-achivement-accent.png');
 
 const AchievementsTitle = () =>
     <Grid item xs={12}>

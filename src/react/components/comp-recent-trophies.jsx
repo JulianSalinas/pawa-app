@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 import styles from "./comp-recent-trophies-styles";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 
-const TrophyIcon = require('../../assets/icon-trophy.png');
+const TrophyIcon = require('../../assets/app-icons/icon-trophy.png');
 
 const TrophyImage = props =>
     <Grid item xs={2}>

@@ -7,10 +7,10 @@ export default theme => ({
     },
     mainVideo: {
         width: "100%",
-        height: "60vh",
+        height: "80vh",
     },
     mainVideoContainer: {
-        height: "60vh",
+        height: "80vh",
         overflow: "hidden"
     },
     videoThumbnail: {

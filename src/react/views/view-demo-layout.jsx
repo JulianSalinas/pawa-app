@@ -10,7 +10,7 @@ import { deviceClient } from '../../js/virtual-device'
 import { CONNECT, DISCONNECT, DEVICE_EVENT, DEVICE_EVENT_SEND_POSITION } from '../../js/virtual-constants'
 import {getRandomPosition} from "../../js/utils-random";
 
-const logo = require('../../assets/img-pawa-1.png');
+const logo = require('../../assets/app-logos/img-pawa-1.png');
 
 const centerStyle = {
     textAlign:'center',

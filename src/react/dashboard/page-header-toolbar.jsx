@@ -16,8 +16,8 @@ import { NavLink } from "react-router-dom";
 import pageTopStyles from "./page-header-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const MedalIcon = require('../../assets/icon-medal-1.png');
-const PersonIcon = require('../../assets/icon-leader-up.png');
+const MedalIcon = require('../../assets/app-icons/icon-medal-1.png');
+const PersonIcon = require('../../assets/app-icons/icon-leader-up.png');
 
 const dummyNotifications = [
     "Es hora de hacer tus ejercicios",

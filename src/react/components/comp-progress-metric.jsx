@@ -32,7 +32,7 @@ const ProgressIcon = props =>
 
 const ProgressLabel = props =>
     <div style={ProgressLabelStyle}>
-        <ProgressIcon icon={require('../../assets/icon-check.png')}/>
+        <ProgressIcon icon={require('../../assets/app-icons/icon-check.png')}/>
         {props.label}
     </div>;
 

@@ -17,7 +17,7 @@ import Typography from "@material-ui/core/Typography/Typography";
 const performValues = ["Personal", "Grupal"];
 const intevalValues = ["Hoy", "Semanal", "Mensual"];
 const chartsValues = ["Tiempo", "Pausas activas", "Postura"];
-const Icon = require('../../assets/icon-metrics-accent.png');
+const Icon = require('../../assets/app-icons/icon-metrics-accent.png');
 
 const MetricsTitle = () =>
     <Grid item xs={12}>

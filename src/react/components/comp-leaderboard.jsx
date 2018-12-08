@@ -6,7 +6,7 @@ import styles from "./comp-leaderboard-styles";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 
 import Avatar from "@material-ui/core/Avatar/Avatar";
-const MedalIcon = require('../../assets/icon-medal-1.png');
+const MedalIcon = require('../../assets/app-icons/icon-medal-1.png');
 
 const LeaderBoardPosition = props =>
     <Grid item xs={2}>

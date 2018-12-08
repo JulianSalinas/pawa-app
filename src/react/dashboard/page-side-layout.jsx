@@ -13,7 +13,7 @@ import styles from "./page-side-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import ButtonTwoStates from "../components/button-two-states";
 
-const Logo = require('../../assets/img-pawa-4.svg');
+const Logo = require('../../assets/app-logos/img-pawa-4.svg');
 
 const NavLogo = () =>
     <a className="logo-wrapper waves-effect">

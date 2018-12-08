@@ -16,31 +16,31 @@ export default [
         path: "/metrics",
         name: "Estadísticas",
         component: MetricsView,
-        icon: require('../../assets/icon-metrics.png')
+        icon: require('../../assets/app-icons/icon-metrics.png')
     },
     {
         path: "/achievements",
         name: "Logros",
         component: AchievementsView,
-        icon: require('../../assets/icon-achivement.png')
+        icon: require('../../assets/app-icons/icon-achivement.png')
     },
     {
         path: "/exercises",
         name: "Ejercicios",
         component: ExercisesView,
-        icon: require('../../assets/icon-exercises.png')
+        icon: require('../../assets/app-icons/icon-exercises.png')
     },
     {
         path: "/tips",
         name: "Tips",
         component: TipsView,
-        icon: require('../../assets/icon-tips.png')
+        icon: require('../../assets/app-icons/icon-tips.png')
     },
     {
         path: "/profile",
         name: "Perfil",
         component: ProfileView,
-        icon: require('../../assets/icon-profile.png')
+        icon: require('../../assets/app-icons/icon-profile.png')
     },
     {
         path: "/settings",
@@ -48,15 +48,15 @@ export default [
         component: SettingsView,
         icon: SettingsIcon
     },
-    {
-        path: "/demo",
-        name: "Demo",
-        component: DemoView,
-        icon: DemoIcon
-    },
+    // {
+    //     path: "/demo",
+    //     name: "Demo",
+    //     component: DemoView,
+    //     icon: DemoIcon
+    // },
     {
         redirect: true,
         path: "/",
-        to: "/profile"
+        to: "/tips"
     }
 ];

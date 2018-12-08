@@ -23,7 +23,7 @@ import ArrowLeft from "@material-ui/icons/ArrowLeft"
 import Play from "@material-ui/icons/PlayCircleFilledWhite"
 
 
-const Icon = require('../../assets/icon-achivement-accent.png');
+const Icon = require('../../assets/app-icons/icon-achivement-accent.png');
 
 const ExercisesTitle = () =>
     <Grid item xs={12}>
@@ -31,7 +31,7 @@ const ExercisesTitle = () =>
     </Grid>;
 
 const ExercisesRecommended = props =>
-    <Grid item xs={12} md={3}>
+    <Grid item xs={12}>
         {/*<Paper className={props.classes.recommendedVideos} elevation={0}>*/}
             <Grid container spacing={24}>
                 <Grid item xs={12}>
@@ -45,7 +45,7 @@ const ExercisesRecommended = props =>
                         {
                             props.recommendedVideos.map((video, key) => {
                                 return (
-                                    <Grid key={key} item xs={6} md={12}>
+                                    <Grid key={key} item xs={6} md={3}>
                                         {/*<img className={props.classes.videoThumbnail}*/}
                                         {/*src={`https://img.youtube.com/vi/${video}/mqdefault.jpg`}/>*/}
                                         <div className={props.classes.videoThumbnail} style={{
@@ -101,48 +101,44 @@ const ExercisesMainControls = props =>
 const ExercisesLayout = props =>
     <Grid container className={props.classes.root} spacing={24}>
         <ExercisesTitle {...props}/>
+
         <Grid item xs={12}>
             <Grid container spacing={24}>
-
-                <Grid item xs={12} md={9}>
-                    <Grid container spacing={24}>
-                        <ExercisesMainVideo {...props}/>
-                        <ExercisesMainControls {...props}/>
-                    </Grid>
-                </Grid>
-
-                <ExercisesRecommended {...props}/>
-
-                <Grid item xs={12}>
-                    {/*<Paper className={props.classes.recommendedVideos} elevation={0}>*/}
-                        <Grid container spacing={24}>
-                            <Grid item xs={12}>
-                                <Typography variant={"subtitle1"} color={"textSecondary"} gutterBottom>
-                                    Más ejercicios
-                                </Typography>
-                                <Divider variant={"middle"} light={true}/>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Grid container spacing={16}>
-                                    {
-                                        props.moreVideos.map((video, key) => {
-                                            return (
-                                                <Grid key={key} item xs={3}>
-                                                    <div className={props.classes.videoThumbnail}>
-                                                        <Play className={props.classes.videoThumbnailPlay}/>
-                                                    </div>
-                                                </Grid>
-                                            );
-                                        })
-                                    }
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    {/*</Paper>*/}
-                </Grid>
-
+                <ExercisesMainVideo {...props}/>
+                <ExercisesMainControls {...props}/>
             </Grid>
         </Grid>
+
+        <ExercisesRecommended {...props}/>
+
+        <Grid item xs={12}>
+            {/*<Paper className={props.classes.recommendedVideos} elevation={0}>*/}
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                        <Typography variant={"subtitle1"} color={"textSecondary"} gutterBottom>
+                            Más ejercicios
+                        </Typography>
+                        <Divider variant={"middle"} light={true}/>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Grid container spacing={16}>
+                            {
+                                props.moreVideos.map((video, key) => {
+                                    return (
+                                        <Grid key={key} item xs={3}>
+                                            <div className={props.classes.videoThumbnail}>
+                                                <Play className={props.classes.videoThumbnailPlay}/>
+                                            </div>
+                                        </Grid>
+                                    );
+                                })
+                            }
+                        </Grid>
+                    </Grid>
+                </Grid>
+            {/*</Paper>*/}
+        </Grid>
+
     </Grid>;
 
 class ExercisesView extends Component {

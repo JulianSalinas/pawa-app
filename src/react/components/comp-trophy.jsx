@@ -7,8 +7,8 @@ import Avatar from "@material-ui/core/Avatar/Avatar";
 
 function getTrophyImage(owned){
     return owned ?
-        require('../../assets/icon-trophy.png'):
-        require('../../assets/icon-trophy.png');
+        require('../../assets/app-icons/icon-trophy.png'):
+        require('../../assets/app-icons/icon-trophy.png');
 }
 
 const TrophyImage = props =>

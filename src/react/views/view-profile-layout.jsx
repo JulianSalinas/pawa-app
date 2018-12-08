@@ -11,7 +11,7 @@ import Progress from "../components/comp-progress-metric";
 import TextField from "@material-ui/core/TextField/TextField";
 import OutlinedSelect from "../components/comp-outlined-select";
 import ManSitting from "../components/comp-man-sitting";
-const Icon = require('../../assets/icon-profile-accent.png');
+const Icon = require('../../assets/app-icons/icon-profile-accent.png');
 
 let UserImageStyle = {
     width: '75px',
