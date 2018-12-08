@@ -11,6 +11,8 @@ import Progress from "../components/comp-progress-metric";
 import TextField from "@material-ui/core/TextField/TextField";
 import OutlinedSelect from "../components/comp-outlined-select";
 import ManSitting from "../components/comp-man-sitting";
+import Avatar from "@material-ui/core/Avatar/Avatar";
+import Button from "@material-ui/core/Button/Button";
 const Icon = require('../../assets/app-icons/icon-profile-accent.png');
 
 let UserImageStyle = {
@@ -33,7 +35,7 @@ let UserInformation = props =>
     </div>;
 
 const ProfileInformation = props =>
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12}>
         <Paper className={props.classes.paper} elevation={0}>
             <Grid container spacing={32}>
                 <Grid item xs={12}>
@@ -68,12 +70,39 @@ const ProfileInformation = props =>
         </Paper>
     </Grid>;
 
+const ProfileImage = props =>
+    <Grid item xs={12}>
+        <Paper className={props.classes.paper} elevation={0}>
+            <Grid container spacing={32}>
+                <Grid item xs={12}>
+                    <Typography variant={"subtitle1"} color={"textSecondary"} gutterBottom>
+                        Imagen de perfil
+                    </Typography>
+                    <Divider variant={"middle"} light={true}/>
+                </Grid>
+                <Grid item xs={12}>
+                    <Grid container spacing={8} align={"center"}>
+                        <Grid item xs={12}>
+                            <Avatar src={require("../../assets/testing-utils/img-material-1.png")}
+                                    className={props.classes.profileImage}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button size="small" color="primary">
+                                Subir nueva imagen
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Paper>
+    </Grid>;
+
 const ProfileAvatar = props =>
     <Grid item xs={12} md={8}>
         <Paper className={props.classes.paper} elevation={0}>
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <Typography variant={"subtitle1"} color={"inherit"} gutterBottom>
+                    <Typography variant={"subtitle1"} color={"textSecondary"} gutterBottom>
                         Avatar
                     </Typography>
                     <Divider variant={"middle"} light={true}/>
@@ -116,7 +145,13 @@ let ProfileLayout = props =>
         <ProfileTitle {...props}/>
         <Grid item xs={12}>
             <Grid container spacing={24} alignItems={"stretch"}>
-                <ProfileInformation {...props}/>
+                <Grid item xs={12} md={4}>
+                    <Grid container spacing={24}>
+                        <ProfileImage {...props}/>
+                        <ProfileInformation {...props}/>
+                    </Grid>
+                </Grid>
+
                 <ProfileAvatar {...props}/>
             </Grid>
         </Grid>

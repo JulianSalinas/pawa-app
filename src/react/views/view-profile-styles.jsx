@@ -7,10 +7,13 @@ export default theme => ({
         padding: theme.spacing.unit * 2,
     },
     avatar: {
-        height: "100%",
         paddingLeft: theme.spacing.unit * 8,
         paddingRight: theme.spacing.unit * 8,
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2
+    },
+    profileImage: {
+        width: "125px",
+        height: "125px"
     }
 });
