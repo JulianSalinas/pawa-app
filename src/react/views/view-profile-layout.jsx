@@ -7,10 +7,8 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Paper from "@material-ui/core/Paper/Paper";
 import Typography from "@material-ui/core/Typography/Typography";
 import Divider from "@material-ui/core/Divider/Divider";
-import Progress from "../components/comp-progress-metric";
 import TextField from "@material-ui/core/TextField/TextField";
 import OutlinedSelect from "../components/comp-outlined-select";
-import ManSitting from "../components/comp-man-sitting";
 import Avatar from "@material-ui/core/Avatar/Avatar";
 import Button from "@material-ui/core/Button/Button";
 const Icon = require('../../assets/app-icons/icon-profile-accent.png');
@@ -24,15 +22,6 @@ const ProfileTitle = () =>
     <Grid item xs={12}>
         <Subtitle text="Perfil" icon={Icon}/>
     </Grid>;
-
-let UserInformation = props =>
-    <div>
-        <img style={UserImageStyle} src={props.user.photoURL} alt={props.user.displayName}/>
-        <hr/>
-        {props.user.displayName}
-        <hr/>
-        {props.user.email}
-    </div>;
 
 const ProfileInformation = props =>
     <Grid item xs={12}>
@@ -84,7 +73,7 @@ const ProfileImage = props =>
                     <Grid container spacing={8} align={"center"}>
                         <Grid item xs={12}>
                             <Avatar src={require("../../assets/testing-utils/img-material-1.png")}
-                                    className={props.classes.profileImage}/>
+                                    className={props.classes.profile}/>
                         </Grid>
                         <Grid item xs={12}>
                             <Button size="small" color="primary">
@@ -111,7 +100,7 @@ const ProfileAvatar = props =>
                     <Grid container spacing={24}>
                         <Grid item xs={12} md={6}>
                             <div className={props.classes.avatar}>
-                                <img src={require('../../assets/custom-clothes/custom-man.svg')}/>
+                                <img src={require('../../assets/custom-clothes/custom-man-1.svg')}/>
                             </div>
                         </Grid>
 
@@ -124,10 +113,10 @@ const ProfileAvatar = props =>
                                         values={["Camisa", "Pantalon", "Sombrero", "Calzado"]}/>
                                 </Grid>
                                 {
-                                    [1,2,3,4,5,6,7,8,9].map((obj, key) =>
+                                    [1,2,3].map((i, key) =>
                                         <Grid item xs={4}>
                                             <Paper className={props.classes.paper} elevation={2}>
-                                                {/*<img src={require('../../assets/icon-profile-accent.png')}/>*/}
+                                                <img src={require(`../../assets/custom-clothes/custom-man-${i}.svg`)}/>
                                             </Paper>
                                         </Grid>
                                     )

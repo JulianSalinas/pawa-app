@@ -12,7 +12,7 @@ export default theme => ({
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2
     },
-    profileImage: {
+    profile: {
         width: "125px",
         height: "125px"
     }
