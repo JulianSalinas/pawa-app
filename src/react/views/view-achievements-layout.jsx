@@ -143,7 +143,7 @@ const BriefChart = props =>
         <ArgumentAxis/>
         <BriefChartValueAxis/>
         { BriefChartUserSeries(props.userSeries) }
-        <Legend position="bottom" {...props}/>;
+        <Legend position="bottom" {...props}/>
         <Title textComponent={() => BriefChartTitle(props)}/>
         <Animation/>
         <Scale/>

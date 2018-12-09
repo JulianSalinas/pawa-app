@@ -17,7 +17,7 @@ const HeaderToolbarWrapper = () =>
 
 const HamburgerMenu = props =>
     <IconButton
-        color="inherit"
+        color="#999"
         aria-label="open drawer"
         onClick={props.handleToggle}>
         <Menu/>
@@ -25,7 +25,7 @@ const HamburgerMenu = props =>
 
 const HamburgerMenuWrapper = props =>
     <Hidden mdUp implementation="css">
-        <HamburgerMenu handleToggle={props.handleToggle}/>
+        <HamburgerMenu {...props}/>
     </Hidden>;
 
 const HeaderToolbarContainerWrapper = props =>
@@ -35,7 +35,7 @@ const HeaderToolbarContainerWrapper = props =>
     </Toolbar>;
 
 const HeaderAppBarWrapper = props =>
-    <AppBar className={props.classes.appbar}>
+    <AppBar className={props.classes.appbar} elevation={0}>
         <HeaderToolbarContainerWrapper {...props}/>
     </AppBar>;
 

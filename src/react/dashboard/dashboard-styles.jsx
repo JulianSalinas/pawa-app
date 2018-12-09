@@ -21,8 +21,10 @@ export default theme => ({
 
     // Where each route is change
     body: {
-        // height: "auto",
-        margin: theme.spacing.unit * 10,
+        marginTop: theme.spacing.unit * 14,
+        marginLeft: theme.spacing.unit * 8,
+        marginRight: theme.spacing.unit * 8,
+        marginBottom: theme.spacing.unit * 8,
         // backgroundColor: "#ffe7d6"
     }
 

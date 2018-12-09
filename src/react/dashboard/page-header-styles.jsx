@@ -1,8 +1,6 @@
 const pageHeaderStyles = theme => ({
     appbar: {
-        width: "100%",
-        position: "absolute",
-        transition: "all 150ms ease 0s",
+        transition: "all 150ms ease 0s"
     },
     toolbar: {
         display:"flex",
@@ -11,15 +9,14 @@ const pageHeaderStyles = theme => ({
         backgroundColor: "#FFF",
         justifyContent: "flex-end"
     },
-    profileStyle: {
-        color: "#666666",
-        marginRight: "15px",
-        display: "inline-block",
-        verticalAlign: "middle",
-        // fontSize: "20px", // 16
-        fontWeight: "500",
-        textDecoration: "none",
-        // backgroundColor: "#141dff"
+    toolbarLinks: {
+        height: "100%"
+    },
+    profileInfo: {
+        height: "100%"
+    },
+    profileImage: {
+        height: "100%"
     },
     medal:{
         width: "15px",
@@ -45,7 +42,7 @@ const pageHeaderStyles = theme => ({
         textAlign: "center",
         borderRadius: "10px",
         position: "absolute",
-        // background: "#66b5bc",
+        background: "#66b5bc",
         verticalAlign: "middle",
         border: "1px solid #FFF",
     },

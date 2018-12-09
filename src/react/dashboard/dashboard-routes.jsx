@@ -48,15 +48,15 @@ export default [
         component: SettingsView,
         icon: SettingsIcon
     },
-    // {
-    //     path: "/demo",
-    //     name: "Demo",
-    //     component: DemoView,
-    //     icon: DemoIcon
-    // },
+    {
+        path: "/demo",
+        name: "Demo",
+        component: DemoView,
+        icon: DemoIcon
+    },
     {
         redirect: true,
         path: "/",
-        to: "/achievements"
+        to: "/metrics"
     }
 ];

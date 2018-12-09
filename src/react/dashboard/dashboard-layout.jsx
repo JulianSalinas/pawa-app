@@ -27,9 +27,7 @@ const DashboardSidebar = props =>
     <Sidebar routes={routes} {...props} />;
 
 const DashboardHeader = props =>
-    <div>
-        <Header routes={routes} {...props} />
-    </div>;
+    <Header routes={routes} {...props} />;
 
 const DashboardFooter = props =>
     <Footer {...props}/>;
@@ -54,7 +52,7 @@ class Dashboard extends Component {
 
     state = {
         open: false,
-        currentUser: require('../../json/norealuser-1'),
+        currentUser: require('../../json/norealuser-2'),
     };
 
     handleToggle = () => {
@@ -79,8 +77,8 @@ class Dashboard extends Component {
     bindPanel() {
         return (
             <div className={this.props.classes.panel} ref="panel">
-                {/*<DashboardHeader {...this.props} handleToggle={this.handleToggle} />*/}
-                <DashboardBody {...this.props}/>
+                <DashboardHeader{...this.props} {...this.state} handleToggle={this.handleToggle} />
+                <DashboardBody {...this.props} {...this.state}/>
                 <DashboardFooter {...this.props}/>
             </div>
         );

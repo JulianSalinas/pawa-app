@@ -15,9 +15,11 @@ import Notifications from "@material-ui/icons/Notifications";
 import { NavLink } from "react-router-dom";
 import pageTopStyles from "./page-header-styles";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Avatar from "@material-ui/core/Avatar/Avatar";
+import Grid from "@material-ui/core/Grid/Grid";
+import Typography from "@material-ui/core/Typography/Typography";
 
 const MedalIcon = require('../../assets/app-icons/icon-medal-1.png');
-const PersonIcon = require('../../assets/app-icons/icon-leader-up.png');
 
 const dummyNotifications = [
     "Es hora de hacer tus ejercicios",
@@ -27,22 +29,13 @@ const dummyNotifications = [
 
 const ExitButton = props =>
     <IconButton>
-        <Exit className={props.exitIcon}/>
+        <Exit className={props.classes.exitIcon}/>
     </IconButton>;
 
-const ProfileButton = props =>
+const ProfileImage = props =>
     <NavLink to="./profile">
-        {/*<IconButton>*/}
-            {/*<Person className={props.icons}/>*/}
-        {/*</IconButton>*/}
-        <img className={props.profileIcon} src={PersonIcon} alt="img" />
+        <Avatar className={props.classes.avatar} src={props.currentUser.photoURL} alt="img" />
     </NavLink>;
-
-const ProfileInfo = props =>
-    <div className={props.profileStyle}>
-        <div style={{marginBottom:"-5px"}}>{props.profile.displayName}</div>
-        <div><img className={props.medal} src={MedalIcon} alt="img"/> Bronce </div>
-    </div>;
 
 const CloseNotificationPopup = props =>
     <Hidden mdUp implementation="css">
@@ -54,8 +47,8 @@ const NotificationButton = props =>
         buttonRef={props.buttonRef}
         onClick={props.handleToggle}
         aria-owns={props.open ? "menu-list-grow" : null}>
-        <Notifications className={props.icons}/>
-        <span className={props.notificationSpan}>{dummyNotifications.length}</span>
+        <Notifications className={props.classes.icon}/>
+        <span className={props.classes.notificationSpan}>{dummyNotifications.length}</span>
         <CloseNotificationPopup {...props}/>
     </IconButton>;
 
@@ -95,7 +88,7 @@ class HeaderLinks extends React.Component {
 
     state = {
         open: false,
-        profile: require('../../json/norealuser-1')
+        currentUser: require('../../json/norealuser-2')
     };
 
     handleAnchor = node => {
@@ -114,32 +107,47 @@ class HeaderLinks extends React.Component {
 
     render() {
 
-        const { classes } = this.props;
-
         return (
-            <div>
+            <Grid container spacing={16} className={this.props.classes.toolbarLinks}>
 
-                {/*<NotificationButton*/}
-                    {/*open={this.state.open}*/}
-                    {/*buttonRef={this.handleAnchor}*/}
-                    {/*handleClose={this.handleClose}*/}
-                    {/*handleToggle={this.handleToggle}*/}
-                    {/*{...this.props} {...classes}/>*/}
+                <Grid item>
+                    <Grid container justify={"flex-end"} className={this.props.classes.profileInfo}>
+                        <Grid item xs={12}>
+                            <Typography align={"right"}>{this.state.currentUser.displayName}</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography align={"right"}>
+                                <img className={this.props.classes.medal} src={MedalIcon} alt="img"/> Bronce
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                {/*<NotificationPopup*/}
-                    {/*open={this.state.open}*/}
-                    {/*anchorEl={this.anchorEl}*/}
-                    {/*buttonRef={this.handleAnchor}*/}
-                    {/*handleClose={this.handleClose}*/}
-                    {/*handleToggle={this.handleToggle}*/}
-                    {/*{...this.props} {...classes}/>*/}
+                {/*<Grid item>*/}
+                    {/*<NotificationButton*/}
+                        {/*open={this.state.open}*/}
+                        {/*buttonRef={this.handleAnchor}*/}
+                        {/*handleClose={this.handleClose}*/}
+                        {/*handleToggle={this.handleToggle}*/}
+                        {/*{...this.props}/>*/}
+                    {/*<NotificationPopup*/}
+                        {/*open={this.state.open}*/}
+                        {/*anchorEl={this.anchorEl}*/}
+                        {/*buttonRef={this.handleAnchor}*/}
+                        {/*handleClose={this.handleClose}*/}
+                        {/*handleToggle={this.handleToggle}*/}
+                        {/*{...this.props}/>*/}
+                {/*</Grid>*/}
 
-                <ProfileInfo profile={this.state.profile} {...this.props} {...classes}/>
+                <Grid item>
+                    <Grid container alignItems={"center"} className={this.props.classes.profileImage}>
+                        <Grid item>
+                            <ProfileImage {...this.props} {...this.state}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-                <ProfileButton {...this.props} {...classes}/>
-
-                <ExitButton {...this.props} {...classes}/>
-            </div>
+            </Grid>
         );
     }
 }
