@@ -81,7 +81,7 @@ class Dashboard extends Component {
             <div className={this.props.classes.panel} ref="panel">
                 {/*<DashboardHeader {...this.props} handleToggle={this.handleToggle} />*/}
                 <DashboardBody {...this.props}/>
-                {/*<DashboardFooter {...this.props}/>*/}
+                <DashboardFooter {...this.props}/>
             </div>
         );
     }

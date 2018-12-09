@@ -5,8 +5,10 @@ const styles = theme => ({
         color: theme.palette.primary.main
     },
     footer: {
-        textAlign: "center",
-        backgroundColor: "#FFF"
+        width: "100%",
+        position: "block",
+        textJustify: "center",
+        backgroundColor: "#FFF",
     }
 });
 

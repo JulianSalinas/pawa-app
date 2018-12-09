@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Julian Salinas Rojas",
+        "valueField": "y1",
+        "argumentField": "x1"
+    },
+    {
+        "name": "Misifus el Gato",
+        "valueField": "y2",
+        "argumentField": "x2"
+    },
+    {
+        "name": "Rambo el Perezoso",
+        "valueField": "y3",
+        "argumentField": "x3"
+    }
+]
